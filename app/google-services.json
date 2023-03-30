@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "62492675706",
+    "firebase_url": "https://sd2thesis-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "sd2thesis",
+    "storage_bucket": "sd2thesis.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62492675706:android:334e5efe6238dfabf9f5c3",
+        "android_client_info": {
+          "package_name": "com.example.filwritingassistant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "62492675706-uhjjgtho9bbj41qikmnpoe28f2r249nm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaltNV4ocU7gH8oLyOI1R6ofJPEdzQANQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "62492675706-uhjjgtho9bbj41qikmnpoe28f2r249nm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62492675706:android:fe75b9a1ea471facf9f5c3",
+        "android_client_info": {
+          "package_name": "com.example.sd2thesis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "62492675706-uhjjgtho9bbj41qikmnpoe28f2r249nm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaltNV4ocU7gH8oLyOI1R6ofJPEdzQANQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "62492675706-uhjjgtho9bbj41qikmnpoe28f2r249nm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:62492675706:android:b177f6848dbb6c2df9f5c3",
+        "android_client_info": {
+          "package_name": "com.example.writingassistant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "62492675706-uhjjgtho9bbj41qikmnpoe28f2r249nm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaltNV4ocU7gH8oLyOI1R6ofJPEdzQANQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "62492675706-uhjjgtho9bbj41qikmnpoe28f2r249nm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
