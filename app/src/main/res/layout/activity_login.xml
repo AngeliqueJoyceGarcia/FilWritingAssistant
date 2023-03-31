@@ -67,6 +67,7 @@
                 android:layout_marginTop="35dp"
                 android:layout_marginRight="30dp"
                 android:background="@drawable/cardview"
+                android:inputType="textPassword"
                 android:drawableLeft="@drawable/passwordicon"
                 android:drawablePadding="8dp"
                 android:hint="Password"

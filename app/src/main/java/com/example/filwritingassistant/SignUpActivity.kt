@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.StyleSpan
+import android.view.ContextThemeWrapper
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
@@ -174,7 +175,7 @@ class SignUpActivity : AppCompatActivity() {
         // Set the DatePickerDialog maximum date to one year before today's date
         val maxDate = calendar.apply { add(Calendar.YEAR, -1) }.timeInMillis
         val datePickerDialog = DatePickerDialog(
-            this,
+            ContextThemeWrapper(this, R.style.BrownDatePickerStyle),
             { _, year, monthOfYear, dayOfMonth ->
                 // Set the selected date to the TextView
                 val selectedDate = Calendar.getInstance().apply {
@@ -192,6 +193,7 @@ class SignUpActivity : AppCompatActivity() {
             month,
             day
         )
+
 
         datePickerDialog.datePicker.maxDate = maxDate // Set the maximum date to one year before today's date
 
