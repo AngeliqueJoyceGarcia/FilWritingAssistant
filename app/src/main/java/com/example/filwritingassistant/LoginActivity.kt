@@ -79,6 +79,10 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
+
+        google.setOnClickListener {
+
+        }
     }
 
 

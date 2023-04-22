@@ -16,6 +16,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 import org.w3c.dom.Text
 import java.util.*
 
@@ -154,6 +155,11 @@ class SignUpActivity : AppCompatActivity() {
                     if (key != null){
                         database.child("Profiles").child(key).setValue(registerUser)
                     }
+
+                    val uid = user.currentUser?.uid
+                    val storageRef = FirebaseStorage.getInstance().getReference("users/$uid/works") // set the directory path
+                    storageRef.child("example.txt").putBytes(ByteArray(0)) // put your file into the directory
+
 
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
