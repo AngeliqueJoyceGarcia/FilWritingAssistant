@@ -15,8 +15,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-
         // Check if the user has already opened the app
         val prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE)
         val firstTime = prefs.getBoolean("first_time", true)
@@ -46,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         val button = findViewById<ImageView>(R.id.btnNext)
 
-        button.setOnClickListener {
+        button?.setOnClickListener {
             user = FirebaseAuth.getInstance()
 
             if (user.currentUser != null) {
@@ -59,6 +57,5 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-
     }
 }

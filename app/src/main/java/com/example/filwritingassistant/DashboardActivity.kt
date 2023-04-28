@@ -3,12 +3,10 @@ package com.example.filwritingassistant
 import android.content.Intent
 import android.content.Intent.ACTION_MAIN
 import android.content.Intent.CATEGORY_HOME
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.service.voice.VoiceInteractionSession.VisibleActivityCallback
 import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
@@ -17,11 +15,8 @@ import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.transition.Fade
-import androidx.transition.TransitionManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -41,7 +36,7 @@ class DashboardActivity : AppCompatActivity() {
 
         val imagerecog = findViewById<LinearLayout>(R.id.imagerecog)
         val editor = findViewById<LinearLayout>(R.id.texteditor)
-        val sidemenu = findViewById<ImageView>(R.id.btnsidemenu)
+        val sidemenu = findViewById<ImageView>(R.id.btnSideMenu)
         val home = findViewById<LinearLayout>(R.id.home)
         val profile = findViewById<LinearLayout>(R.id.profile)
         val userName = findViewById<TextView>(R.id.tvname)
@@ -59,6 +54,9 @@ class DashboardActivity : AppCompatActivity() {
         /** Getting the current user that was logged in to the system **/
         user = FirebaseAuth.getInstance()
         val userCurrent = FirebaseAuth.getInstance().currentUser
+
+        /**for automatic switching of cardviews**/
+        switchImageView()
 
         /** Getting the current user that was logged in to the system **/
         if(userCurrent!=null){
@@ -101,9 +99,6 @@ class DashboardActivity : AppCompatActivity() {
 
         /**Loading works**/
         viewWorks()
-
-        /**for automatic switching of cardviews**/
-        switchImageView()
 
         sidemenu.setOnClickListener {
             openDrawer(drawer)
@@ -157,28 +152,47 @@ class DashboardActivity : AppCompatActivity() {
     }
 
     private fun switchImageView() {
-        val cardview1 = findViewById<ImageView>(R.id.cvappinfo1)
-        val cardview2 = findViewById<ImageView>(R.id.cvappinfo2)
+        val cv1 = findViewById<ImageView>(R.id.cvappinfo1)
+        val cv2 = findViewById<ImageView>(R.id.cvappinfo2)
+        val cv3 = findViewById<ImageView>(R.id.cvappinfo3)
+        val cv4 = findViewById<ImageView>(R.id.cvappinfo4)
 
-        // Check which ImageView is currently visible
-        val isVisible1 = cardview1.visibility == View.VISIBLE
+        val cardViews = arrayOf(cv1, cv2, cv3, cv4)
+        var currentIndex = 0
 
-        // Hide the currently visible ImageView and show the other one
-        if (isVisible1) {
-            cardview1.visibility = View.GONE
-            cardview2.visibility = View.VISIBLE
-        } else {
-            cardview1.visibility = View.VISIBLE
-            cardview2.visibility = View.GONE
+        // Show the first cardView initially
+        cardViews.forEachIndexed { index, imageView ->
+            if (index == 0) {
+                imageView.visibility = View.VISIBLE
+            } else {
+                imageView.visibility = View.GONE
+            }
         }
 
-        // Call this function again after a 2-second delay
-        Handler(Looper.getMainLooper()).postDelayed({
-            switchImageView()
-        }, 3000)
+        val handler = Handler()
+        val runnable = object : Runnable {
+            override fun run() {
+                cardViews[currentIndex].visibility = View.GONE
+                currentIndex = (currentIndex + 1) % cardViews.size
+                cardViews.forEachIndexed { index, imageView ->
+                    if (index == currentIndex) {
+                        imageView.visibility = View.VISIBLE
+                    } else {
+                        imageView.visibility = View.GONE
+                    }
+                }
+                handler.postDelayed(this, 3000)
+            }
+        }
+
+        // Start the image switcher
+        handler.postDelayed(runnable, 3000)
     }
 
-   fun openDrawer(drawer:DrawerLayout){
+
+
+
+    fun openDrawer(drawer:DrawerLayout){
         drawer.openDrawer(GravityCompat.START)
 
     }
@@ -202,7 +216,7 @@ class DashboardActivity : AppCompatActivity() {
         finish()
     }
 
-    fun viewWorks(){
+    fun viewWorks() {
         // Get a reference to the Firebase Storage instance and to the current user's UID
         val storage = FirebaseStorage.getInstance()
         val uid = user.currentUser?.uid ?: return
@@ -234,8 +248,33 @@ class DashboardActivity : AppCompatActivity() {
             // Create an adapter for the list view and set it to the 'works' list view
             val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, fileNames)
             worksListView.adapter = adapter
+
+            // Add an item click listener to the 'works' list view
+            worksListView.setOnItemClickListener { _, _, position, _ ->
+                // Get the name of the selected file
+                val selectedFileName = fileNames[position]
+
+                // Create a reference to the selected file in the 'works' folder
+                val selectedFileRef = worksRef.child(selectedFileName)
+
+                // Download the content of the selected file
+                selectedFileRef.getBytes(Long.MAX_VALUE).addOnSuccessListener { fileBytes ->
+                    // Convert the downloaded bytes to a string
+                    val fileContent = String(fileBytes)
+
+                    // Launch the TextEditorActivity with the content of the selected file passed as an extra in the intent
+                    val intent = Intent(this, TextEditor::class.java)
+                    intent.putExtra("fileContent", fileContent)
+                    startActivity(intent)
+                }.addOnFailureListener { exception ->
+                    // Handle any errors that occur during the download
+                    Log.e("viewWorks", "Error downloading file: $exception")
+                    Toast.makeText(this, "Error downloading file", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
+
 
 
 

@@ -36,6 +36,7 @@ class ImageRecognition : AppCompatActivity() {
     private val REQUEST_IMAGE_CAPTURE = 1 // unique request code
     private val REQUEST_CAMERA_PERMISSION = 2 // unique request code
     lateinit var drawer: DrawerLayout
+    lateinit var output: TextView
 
     //for side menu
     private lateinit var user : FirebaseAuth
@@ -45,9 +46,11 @@ class ImageRecognition : AppCompatActivity() {
         setContentView(R.layout.activity_image_recognition)
 
         val capture = findViewById<ImageView>(R.id.btncapture)
-        val sidemenu = findViewById<ImageView>(R.id.btnSideMenu)
+        val proceed = findViewById<ImageView>(R.id.btncontinue)
+        output = findViewById(R.id.tvPredictedtext)
 
         //for side menu
+        val sidemenu = findViewById<ImageView>(R.id.btnSideMenu)
         val home = findViewById<LinearLayout>(R.id.home)
         val profile = findViewById<LinearLayout>(R.id.profile)
         val aboutUs = findViewById<LinearLayout>(R.id.about)
@@ -55,6 +58,7 @@ class ImageRecognition : AppCompatActivity() {
         val database = FirebaseDatabase.getInstance().reference
         val userName = findViewById<TextView>(R.id.tvname)
         val emailAddress = findViewById<TextView>(R.id.tvemail)
+
 
         drawer = findViewById(R.id.imgrecogparent)
 
@@ -130,6 +134,13 @@ class ImageRecognition : AppCompatActivity() {
             }
         }
 
+        proceed.setOnClickListener{
+            val text = output.text.toString() // get text from output TextView
+            val intent = Intent(this, TextEditor::class.java)
+            intent.putExtra("text", text) // pass text to TextEditorActivity
+            startActivity(intent) // start TextEditorActivity
+        }
+
         sidemenu.setOnClickListener {
             openDrawer(drawer)
         }
@@ -173,14 +184,12 @@ class ImageRecognition : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
-            Toast.makeText(this, "Image saved to hidden folder in downloads directory.", Toast.LENGTH_LONG).show()
-
             // Load the saved image from file
             val fileName = "myImage.jpg"
             val storageDir = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)?.absolutePath + "/.hiddenFolder/"
             val file = File(storageDir, fileName)
             val imageBitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, Uri.fromFile(file))
-            val output = findViewById<TextView>(R.id.tvPredictedtext)
+
             val textRecognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
 
             // Process the newly captured image
@@ -203,8 +212,6 @@ class ImageRecognition : AppCompatActivity() {
             }
         }
     }
-
-
 
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
