@@ -146,175 +146,175 @@ class TutorialActivity : AppCompatActivity() {
 
         /** A **/
         a.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_a
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.a
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_aa)
         }
 
         /** B **/
         b.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_b
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.b
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_bb)
         }
 
         /** C **/
         c.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_c
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.c
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_cc)
         }
 
         /** D **/
         d.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_d
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.d
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_dd)
         }
 
         /** E **/
         e.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_e
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.e
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_ee)
         }
 
         /** F **/
         f.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_f
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.f
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_ff)
         }
 
         /** G **/
         g.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_g
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.g
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_gg)
         }
         /** H **/
         h.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_h
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.h
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_hh)
         }
         /** I **/
         i.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_i
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.i
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_ii)
         }
         /** J **/
         j.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_j
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.j
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_jj)
         }
         /** K **/
         k.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_k
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.k
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_kk)
         }
         /** L **/
         l.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_l
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.l
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_ll)
         }
         /** M **/
         m.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_m
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.m
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_mm)
         }
         /** N **/
         n.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_n
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.n
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_nn)
         }
         /** Ñ **/
         Ñ.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_enye
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.enye
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_enyeenye)
         }
         /** Ng **/
         ng.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_ng
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.ng
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_ngng)
         }
         /** O **/
         o.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_o
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.o
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_oo)
         }
         /** P **/
         p.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_p
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.p
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_pp)
         }
         /** Q **/
         q.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_q
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.q
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_qq)
         }
         /** R **/
         r.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_r
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.r
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_rr)
         }
         /** S **/
         s.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_s
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.s
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_ss)
         }
         /** T **/
         t.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_t
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_tt)
         }
         /** U **/
         u.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_u
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.u
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_uu)
         }
         /** V **/
         v.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_v
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.v
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_vv)
         }
         /** W **/
         w.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_w
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.w
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_ww)
         }
         /** X **/
         x.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_x
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.x
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_xx)
         }
         /** Y **/
         y.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_y
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.y
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_yy)
         }
         /** Z **/
         z.setOnClickListener {
-            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.t_z
+            val aPath = "android.resource://" + packageName + "/raw/" + R.raw.z
             vid_letter.setVideoURI(Uri.parse(aPath))
             img_letter.setImageResource(R.drawable.t_zz)
         }

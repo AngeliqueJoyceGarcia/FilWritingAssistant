@@ -36,10 +36,23 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/menuicon" />
 
+        <ImageView
+            android:id="@+id/logo_tutorial"
+            android:layout_width="37dp"
+            android:layout_height="69dp"
+
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/imageView3"
+            app:layout_constraintEnd_toEndOf="@+id/imageView3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/main_flogo" />
+
         <TextView
             android:id="@+id/lblTutorial"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="215dp"
+            android:layout_height="39dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/labelholderimgrecog"
             android:paddingLeft="40dp"
@@ -60,7 +73,7 @@
             android:id="@+id/holderimagetutorial"
             android:layout_width="250dp"
             android:layout_height="150dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="36dp"
             android:background="@drawable/tutorial_imagebackground"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
@@ -84,10 +97,10 @@
             android:id="@+id/holdervideotutorial"
             android:layout_width="210dp"
             android:layout_height="220dp"
-            android:layout_marginTop="244dp"
+            android:layout_marginTop="212dp"
             android:background="@drawable/tutorial_videobackground"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lblTutorial">
 
