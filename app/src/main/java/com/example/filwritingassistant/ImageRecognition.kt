@@ -35,11 +35,11 @@ class ImageRecognition : AppCompatActivity() {
 
     private val REQUEST_IMAGE_CAPTURE = 1 // unique request code
     private val REQUEST_CAMERA_PERMISSION = 2 // unique request code
-    lateinit var drawer: DrawerLayout
     lateinit var output: TextView
 
     //for side menu
     private lateinit var user : FirebaseAuth
+    lateinit var drawer: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
