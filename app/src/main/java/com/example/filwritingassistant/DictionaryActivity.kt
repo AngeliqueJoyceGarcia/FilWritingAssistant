@@ -18,13 +18,11 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import org.w3c.dom.Text
 
 class DictionaryActivity : AppCompatActivity() {
 
@@ -41,7 +39,7 @@ class DictionaryActivity : AppCompatActivity() {
 
         //for dictionary
         val search = findViewById<EditText>(R.id.edSearch)
-        val btnSearch = findViewById<ImageView>(R.id.btnSearch)
+        val btnSearch = findViewById<ImageView>(R.id.btnSearch2)
         val searchedWord = findViewById<TextView>(R.id.tvSearchedWord)
         val partsofspeech = findViewById<TextView>(R.id.tvPOS)
         val definition = findViewById<TextView>(R.id.tvDefinition)
