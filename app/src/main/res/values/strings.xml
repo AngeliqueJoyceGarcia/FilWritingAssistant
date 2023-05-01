@@ -3,4 +3,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cursive_tutorial">CURSIVE TUTORIAL</string>
+    <string name="about">ABOUT</string>
+    <string name="transform_your_writing2">Transform your Writing</string>
+    <string name="about_title">Filipino Cursive Recognition and Writing Assistant using Natural Language Processing and Artificial Neural Network</string>
+    <string name="about_titledesc">A mobile application designed to assist users in learning and writing Filipino cursive letters, as well as ensuring proper grammar and spelling in the Filipino language. The application was created using Android Studio and utilized Natural Language Processing and Artificial Neural Network algorithms to recognize Filipino grammar structures and spellings, as well as Filipino cursive letters using Image Recognition.</string>
+    <string name="title_purpose">The system is designed to help users write effectively in the Filipino language, specifically Tagalog. It includes features such as grammar and spelling checks, a Filipino dictionary and thesaurus, and resources for learning and practicing cursive handwriting.</string>
+    <string name="year">2023</string>
 </resources>
