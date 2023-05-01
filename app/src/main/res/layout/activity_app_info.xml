@@ -38,7 +38,7 @@
             android:id="@+id/constraintLayout2"
             android:layout_width="300dp"
             android:layout_height="115dp"
-            android:layout_marginTop="92dp"
+            android:layout_marginTop="88dp"
             android:background="@drawable/tutorial_backgroundpicker"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.54"
@@ -58,9 +58,9 @@
 
             <TextView
                 android:id="@+id/text_about"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="52dp"
+                android:layout_width="74dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="44dp"
                 android:layout_marginTop="36dp"
                 android:text="@string/about"
                 android:textAlignment="center"
@@ -76,7 +76,7 @@
                 android:layout_height="1.1dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="150dp"
-                android:layout_marginBottom="51dp"
+                android:layout_marginBottom="52dp"
                 android:background="#f1e4c2"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -90,12 +90,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="36dp"
-                android:layout_marginTop="64dp"
+                android:layout_marginTop="63dp"
                 android:text="@string/transform_your_writing2"
                 android:textAlignment="center"
                 android:textColor="#f1e4c2"
                 android:textSize="10sp"
                 android:textStyle="italic"
+                app:layout_constraintEnd_toStartOf="@+id/about_logo"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="SmallSp" />
@@ -115,21 +117,25 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
             tools:ignore="UnknownId">
 
-
-            <TextView
-                android:id="@+id/text_title"
-                android:layout_width="314dp"
-                android:layout_height="55dp"
-                android:layout_marginTop="32dp"
-                android:text="@string/about_title"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor="@color/darkbrown"
-                android:textStyle="bold|italic"
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                app:layout_constraintBottom_toTopOf="@+id/about_line2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.482"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/text_title"
+                    android:layout_width="314dp"
+                    android:layout_height="55dp"
+                    android:text="@string/about_title"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/darkbrown"
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+            </FrameLayout>
 
             <View
                 android:id="@+id/about_line2"
@@ -137,28 +143,30 @@
                 android:layout_height="2dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
-                android:layout_marginBottom="480dp"
+                android:layout_marginBottom="20dp"
                 android:background="@color/darkbrown"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/text_titledescription"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintRight_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <TextView
+        <TextView
                 android:id="@+id/text_titledescription"
                 android:layout_width="306dp"
-                android:layout_height="102dp"
+                android:layout_height="350dp"
                 android:layout_marginTop="116dp"
                 android:text="@string/about_titledesc"
                 android:textAlignment="center"
                 android:textColor="@color/darkbrown"
-                android:textSize="11sp"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/about_line3"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.492"
+                app:layout_constraintHorizontal_bias="0.507"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
                 tools:ignore="TextSizeCheck" />
 
             <View
@@ -175,20 +183,6 @@
                 app:layout_constraintRight_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
-
-            <TextView
-                android:id="@+id/text_purpose"
-                android:layout_width="308dp"
-                android:layout_height="81dp"
-                android:layout_marginTop="216dp"
-                android:text="@string/title_purpose"
-                android:textAlignment="center"
-                android:textColor="@color/darkbrown"
-                android:textSize="11sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.515"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/text_year"
