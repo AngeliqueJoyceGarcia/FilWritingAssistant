@@ -1,14 +1,23 @@
 package com.example.filwritingassistant
 
-import android.opengl.Visibility
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import android.widget.VideoView
+import java.io.File
+import java.io.FileOutputStream
+
 
 class SimulationActivity : AppCompatActivity() {
+
+
+
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_simulation)
@@ -21,6 +30,32 @@ class SimulationActivity : AppCompatActivity() {
         val video = findViewById<VideoView>(R.id.videosimulator)
         val previous = findViewById<ImageView>(R.id.btnprevious)
         val next = findViewById<ImageView>(R.id.btnNext)
+
+        //PaintView
+        val paintView = findViewById<PaintView>(R.id.paintView)
+        paintView.setOnTouchListener { _, event ->
+            paintView.onTouchEvent(event)
+        }
+
+        // once clicked, it will clear the drawing in the paintView layout
+        val clearButton = findViewById<ImageView>(R.id.btn_clear)
+        clearButton.setOnClickListener {
+            paintView.reset()
+        }
+
+        //once clicked, it will go back to the Letter Picker of simulation
+        val backButton = findViewById<ImageView>(R.id.btn_backpicker)
+        backButton.setOnClickListener {
+            val intent = Intent(this, LetterPickerSimuActivity::class.java)
+            startActivity(intent)
+        }
+
+        //once clicked, it will save the drawing to the hidden folder in the phone
+        val saveButton = findViewById<ImageView>(R.id.btn_save)
+        saveButton.setOnClickListener{
+            saveImage()
+        }
+
 
 
         //check if the letter is 'a' and capitalization is 'SMALL' and index is 0
@@ -164,13 +199,39 @@ class SimulationActivity : AppCompatActivity() {
             }
         }
 
-
-
-
-
-
-
-
-
     }
+
+    private fun saveImage() {
+        val paintView = findViewById<PaintView>(R.id.paintView)
+        val bitmap = paintView.getBitmapFromView()
+
+
+        //path: /storage/emulated/0/Android/data/filwritingassistant/files/.images/simulation.jpg
+        val imagesFolder = File(getExternalFilesDir(null), ".images")
+        if (!imagesFolder.exists()) {
+            imagesFolder.mkdirs()
+        }
+
+        val file = File(imagesFolder, "simulation.jpg")
+
+        try {
+            val outputStream = FileOutputStream(file)
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
+            outputStream.flush()
+            outputStream.close()
+            Toast.makeText(this, "Image saved successfully", Toast.LENGTH_SHORT).show()
+        } catch (e: Exception) {
+            Toast.makeText(this, "Failed to save image", Toast.LENGTH_SHORT).show()
+            e.printStackTrace()
+        }
+    }
+
+
 }
+
+
+
+
+
+
+

@@ -1,6 +1,7 @@
 package com.example.filwritingassistant
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
@@ -12,10 +13,11 @@ import android.view.View
 class PaintView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
     private val paint = Paint()
+    private val path = Path()
 
     init {
         paint.color = Color.BLACK
-        paint.strokeWidth = 5f
+        paint.strokeWidth = 45f
         paint.isAntiAlias = true
         paint.style = Paint.Style.STROKE
         paint.strokeJoin = Paint.Join.ROUND
@@ -25,8 +27,6 @@ class PaintView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         super.onDraw(canvas)
         canvas.drawPath(path, paint)
     }
-
-    private val path = Path()
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
         val x = event.x
@@ -46,4 +46,17 @@ class PaintView(context: Context, attrs: AttributeSet) : View(context, attrs) {
         invalidate()
         return true
     }
+
+    fun reset() {
+        path.reset()
+        invalidate()
+    }
+
+    fun getBitmapFromView(): Bitmap {
+        val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bitmap)
+        draw(canvas)
+        return bitmap
+    }
 }
+
