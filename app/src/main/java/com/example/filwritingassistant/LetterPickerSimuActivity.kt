@@ -172,8 +172,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "0"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -182,8 +182,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "0"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -192,8 +192,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "1"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -202,8 +202,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "1"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -212,8 +212,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "2"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -222,8 +222,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "2"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -232,8 +232,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "3"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -242,8 +242,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "3"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -252,8 +252,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "4"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -262,8 +262,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "4"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -272,8 +272,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "5"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -282,8 +282,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "5"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -292,8 +292,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "6"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -302,8 +302,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "6"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -312,8 +312,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "7"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -322,8 +322,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "7"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -332,8 +332,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "8"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -342,8 +342,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "8"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -352,8 +352,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "9"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -362,8 +362,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "9"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -372,8 +372,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "10"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -382,8 +382,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "10"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -392,8 +392,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "11"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -402,8 +402,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "11"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -412,8 +412,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "12"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -422,8 +422,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "12"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -432,8 +432,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "13"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -442,8 +442,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "13"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -452,8 +452,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "14"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -462,8 +462,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "14"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -472,8 +472,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "15"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -482,8 +482,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "15"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -492,8 +492,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "16"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -502,8 +502,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "16"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -512,8 +512,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "17"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -522,8 +522,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "17"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -532,8 +532,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "18"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -542,8 +542,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "18"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -552,8 +552,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "19"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -562,8 +562,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "19"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -572,8 +572,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "20"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -582,8 +582,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "20"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -592,8 +592,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "21"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -602,8 +602,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "21"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -612,8 +612,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "22"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -622,8 +622,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "22"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -632,8 +632,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "23"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -642,8 +642,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "23"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -652,8 +652,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "24"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -662,8 +662,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "24"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -672,8 +672,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "25"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -682,8 +682,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "25"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -692,8 +692,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "26"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -702,8 +702,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "26"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -712,8 +712,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "27"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
@@ -722,8 +722,8 @@ class LetterPickerSimuActivity : AppCompatActivity() {
             classIndex = "27"
 
             val intent = Intent(this, SimulationActivity::class.java)
-            intent.putExtra(letterCapitalization, "m1")
-            intent.putExtra(classIndex, "m2")
+            intent.putExtra("m1", letterCapitalization)
+            intent.putExtra("m2", classIndex)
             startActivity(intent)
         }
 
