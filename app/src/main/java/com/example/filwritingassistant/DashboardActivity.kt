@@ -6,7 +6,6 @@ import android.content.Intent.CATEGORY_HOME
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
@@ -133,7 +132,7 @@ class DashboardActivity : AppCompatActivity() {
         }
 
         simulation.setOnClickListener {
-            startActivity(Intent(this,SimulationActivity::class.java))
+            startActivity(Intent(this,LetterPickerSimuActivity::class.java))
         }
 
         tutorial.setOnClickListener {

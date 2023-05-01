@@ -1,0 +1,1671 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LetterPickerSimuActivity"
+    android:background="@drawable/bgdashboard"
+    android:id="@+id/parentPicker">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.96"
+            app:srcCompat="@drawable/dashboardtopcardview"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/btnSideMenu5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintBottom_toBottomOf="@id/imageView10"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/menuicon" />
+
+        <ScrollView
+            android:id="@+id/letterpickerholder"
+            android:layout_width="match_parent"
+            android:layout_height="700dp"
+            app:layout_constraintTop_toBottomOf="@id/imageView10"
+            android:background="@drawable/dashboardcontainer"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+           >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/holderA"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/odd_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblA"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="20dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="A"
+                        android:textColor="#583A00"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblA"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderB"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/even_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblB"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginEnd="25dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="B"
+                        android:textColor="#C6B699"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblB"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigB"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallB"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderC"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/odd_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblC"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="20dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="C"
+                        android:textColor="#583A00"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblC"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigC"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallC"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/even_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="D"
+                        android:textColor="#C6B699"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblD"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigD"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallD"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderE"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/odd_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblE"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="35dp"
+                        android:layout_marginEnd="25dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="E"
+                        android:textColor="#583A00"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblE"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigE"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallE"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderF"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/even_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblF"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginEnd="25dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="F"
+                        android:textColor="#C6B699"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblF"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigF"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallF"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderG"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/odd_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="G"
+                        android:textColor="#583A00"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblG"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigG"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallG"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderH"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/even_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblH"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="H"
+                        android:textColor="#C6B699"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblH"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigH"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallH"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderI"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/odd_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblI"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="55dp"
+                        android:layout_marginEnd="35dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="I"
+                        android:textColor="#583A00"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblI"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigI"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallI"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderJ"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/even_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblJ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="55dp"
+                        android:layout_marginEnd="30dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="J"
+                        android:textColor="#C6B699"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblJ"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigJ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallJ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderK"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/odd_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblK"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="35dp"
+                        android:layout_marginEnd="15dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="K"
+                        android:textColor="#583A00"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblK"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigK"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallK"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderL"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/even_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginEnd="20dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="L"
+                        android:textColor="#C6B699"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblL"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigL"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallL"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderM"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/odd_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="M"
+                        android:textColor="#583A00"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblM"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigM"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallM"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderN"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/even_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblN"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="N"
+                        android:textColor="#C6B699"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblN"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigN"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallN"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderÑ"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/odd_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblÑ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="Ñ"
+                        android:textColor="#583A00"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblÑ"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigÑ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallÑ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderNG"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/even_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblNG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginVertical="35dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="NG"
+                        android:textColor="#C6B699"
+                        android:textSize="75dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblNG"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigNG"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallNG"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderO"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/odd_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblO"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="15dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="O"
+                        android:textColor="#583A00"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblO"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigO"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallO"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderP"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/even_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="45dp"
+                        android:layout_marginEnd="25dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="P"
+                        android:textColor="#C6B699"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblP"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigP"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallP"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderQ"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/odd_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblQ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="Q"
+                        android:textColor="#583A00"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblQ"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallQ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderR"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/even_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblR"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="R"
+                        android:textColor="#C6B699"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblR"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigR"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallR"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderS"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/odd_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblS"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="45dp"
+                        android:layout_marginEnd="25dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="S"
+                        android:textColor="#583A00"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblS"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigS"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallS"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderT"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/even_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="T"
+                        android:textColor="#C6B699"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblT"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigT"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallT"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderU"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/odd_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblU"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="U"
+                        android:textColor="#583A00"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblU"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigU"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallU"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/even_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="V"
+                        android:textColor="#C6B699"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblV"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderW"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/odd_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblW"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="W"
+                        android:textColor="#583A00"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblW"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigW"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallW"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderX"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/even_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblX"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="15dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="X"
+                        android:textColor="#C6B699"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblX"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigX"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallX"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderY"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/odd_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblY"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="15dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="Y"
+                        android:textColor="#583A00"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblY"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigY"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallY"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/odd_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/holderZ"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/even_letter_holder"
+                    android:elevation="10dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/lblZ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginEnd="15dp"
+                        android:fontFamily="@font/centaur"
+                        android:text="Z"
+                        android:textColor="#C6B699"
+                        android:textSize="130dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp"
+                        android:layout_toRightOf="@id/lblZ"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/btnBigZ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="BIG"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/btnSmallZ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/even_big_small_holder"
+                            android:padding="10dp"
+                            android:text="SMALL"
+                            android:textAlignment="center"
+                            android:textColor="#583A00"
+                            android:textSize="20dp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+
+
+
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start">
+
+        <include layout="@layout/nav_drawer" />
+    </RelativeLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>
