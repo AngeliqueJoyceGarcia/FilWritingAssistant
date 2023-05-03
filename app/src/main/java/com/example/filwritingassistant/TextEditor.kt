@@ -237,6 +237,10 @@ class TextEditor : AppCompatActivity() {
                 }
             }
         }
+
+        /** Checking the grammar of edit text content **/
+
+
     }
 
     fun openDrawer(drawer:DrawerLayout){
