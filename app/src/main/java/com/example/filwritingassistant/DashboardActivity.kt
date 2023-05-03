@@ -264,6 +264,7 @@ class DashboardActivity : AppCompatActivity() {
                     // Launch the TextEditorActivity with the content of the selected file passed as an extra in the intent
                     val intent = Intent(this, TextEditor::class.java)
                     intent.putExtra("fileContent", fileContent)
+                    intent.putExtra("filenames", selectedFileName)
                     startActivity(intent)
                 }.addOnFailureListener { exception ->
                     // Handle any errors that occur during the download

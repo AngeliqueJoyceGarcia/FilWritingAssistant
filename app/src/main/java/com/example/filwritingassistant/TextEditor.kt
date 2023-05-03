@@ -173,7 +173,7 @@ class TextEditor : AppCompatActivity() {
                     val userWorksRef = storageRef.getReference("users/" + it.uid + "/works")
 
                     // Check if the saved text came from the listView
-                    val fileName = intent.getStringExtra("filename")
+                    val fileName = intent.getStringExtra("filenames")
                     if (fileName != null) {
                         // Prompt the user if they want to overwrite the saved text or not
                         val builder = AlertDialog.Builder(this)
@@ -260,24 +260,7 @@ class TextEditor : AppCompatActivity() {
     }
 
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == readRequestCode && resultCode == Activity.RESULT_OK) {
-            data?.data?.also { uri ->
-                if (uri.toString().endsWith(".txt")) {
-                    val inputStream = contentResolver.openInputStream(uri)
-                    val inputString = inputStream?.bufferedReader().use { it?.readText() }
-                    texteditor.setText(inputString)
-                } else {
-                    AlertDialog.Builder(this)
-                        .setTitle("Invalid File Type")
-                        .setMessage("Please select a text file")
-                        .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
-                        .show()
-                }
-            }
-        }
-    }
+
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -305,12 +288,24 @@ class TextEditor : AppCompatActivity() {
 
     /**For uploading**/
     private fun performFileSearch() {
-        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
-            addCategory(Intent.CATEGORY_OPENABLE)
-            type = "text/plain"
-        }
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "text/*"
         startActivityForResult(intent, readRequestCode)
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
+        super.onActivityResult(requestCode, resultCode, resultData)
+        if (requestCode == readRequestCode && resultCode == Activity.RESULT_OK) {
+            resultData?.data?.also { uri ->
+                val inputStream = contentResolver.openInputStream(uri)
+                val text = inputStream?.bufferedReader()?.use { it.readText() }
+                textEditor.setText(text)
+            }
+        }
+    }
+
+
+
 
     /**For download**/
     private fun showFileNameInputDialog() {
