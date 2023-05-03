@@ -1345,10 +1345,10 @@ class SimulationActivity : AppCompatActivity() {
                 video.start()
 
                 // show or hide the previous and next buttons based on current video index
-                if (currentVideoIndex == 1) {
+                if (currentVideoIndex == 1 || currentVideoIndex == 2) {
                     previous.visibility = View.VISIBLE
                     next.visibility = View.VISIBLE
-                } else if (currentVideoIndex == 2) {
+                } else if (currentVideoIndex == 3) {
                     previous.visibility = View.VISIBLE
                     next.visibility = View.INVISIBLE
                 }
@@ -1382,7 +1382,7 @@ class SimulationActivity : AppCompatActivity() {
         //check if the letter is 'ng' and capitalization is 'BIG' and index is 15
         if (letterCapitalization == "BIG" && index == "15") {
             var currentVideoIndex = 0
-            val videos = arrayOf(R.raw.s_ngng1, R.raw.s_ng2, R.raw.s_ng3, R.raw.s_ng4)
+            val videos = arrayOf(R.raw.s_ng1, R.raw.s_ng2, R.raw.s_ng3, R.raw.s_ng4)
 
             //play the first video
             video.setVideoPath("android.resource://" + packageName + "/" + videos[currentVideoIndex])
@@ -1400,10 +1400,10 @@ class SimulationActivity : AppCompatActivity() {
                 video.start()
 
                 // show or hide the previous and next buttons based on current video index
-                if (currentVideoIndex == 1) {
+                if (currentVideoIndex == 1 || currentVideoIndex == 2) {
                     previous.visibility = View.VISIBLE
                     next.visibility = View.VISIBLE
-                } else if (currentVideoIndex == 2) {
+                } else if (currentVideoIndex == 3) {
                     previous.visibility = View.VISIBLE
                     next.visibility = View.INVISIBLE
                 }
@@ -2030,7 +2030,7 @@ class SimulationActivity : AppCompatActivity() {
         }
 
         // check if the letter is 'u' and capitalization is 'BIG' and index is 22
-        if (letterCapitalization == "SMALL" && index == "22") {
+        if (letterCapitalization == "BIG" && index == "22") {
             // play the first video
             video.setVideoPath("android.resource://" + packageName + "/" + R.raw.s_u1)
             video.start()
@@ -2483,7 +2483,7 @@ class SimulationActivity : AppCompatActivity() {
                 video.start()
             }
         }
-        
+
 
     }
 

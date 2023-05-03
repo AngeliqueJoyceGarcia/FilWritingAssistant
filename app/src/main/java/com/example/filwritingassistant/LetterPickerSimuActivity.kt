@@ -69,7 +69,7 @@ class LetterPickerSimuActivity : AppCompatActivity() {
         val Q = findViewById<TextView>(R.id.btnBigQ)
         val q = findViewById<TextView>(R.id.btnSmallQ)
         val RR = findViewById<TextView>(R.id.btnBigR)
-        val rr = findViewById<TextView>(R.id.btnBigR)
+        val rr = findViewById<TextView>(R.id.btnSmallR)
         val S = findViewById<TextView>(R.id.btnBigS)
         val s = findViewById<TextView>(R.id.btnSmallS)
         val T = findViewById<TextView>(R.id.btnBigT)
