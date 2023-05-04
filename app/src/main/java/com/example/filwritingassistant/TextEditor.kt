@@ -394,8 +394,10 @@ class TextEditor : AppCompatActivity() {
                 val closestPattern = findClosestPattern(getPattern)
                 val hint = rearrange(closestPattern, getPattern, tokenArray.toString())
 
-                if (hint != null) {
+                if (hint.isNotEmpty()) {
                     suggestionList.add("Did you mean: " + hint.joinToString(separator = " "))
+                } else {
+                    suggestionList.add("No rearrangement suggestion for now")
                 }
 
                 adapter.notifyDataSetChanged()
