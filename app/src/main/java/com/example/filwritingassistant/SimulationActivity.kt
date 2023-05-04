@@ -3,6 +3,9 @@ package com.example.filwritingassistant
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Canvas
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.strictmode.WebViewMethodCalledOnWrongThreadViolation
@@ -10,8 +13,13 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import android.widget.VideoView
+import com.example.filwritingassistant.ml.Fwamodel
+import org.tensorflow.lite.DataType
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.File
 import java.io.FileOutputStream
+import java.nio.ByteBuffer
+import java.nio.ByteOrder
 
 
 class SimulationActivity : AppCompatActivity() {
@@ -22,6 +30,9 @@ class SimulationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_simulation)
+
+        // Model
+        val model = Fwamodel.newInstance(this)
 
         //from letter picker activity, m1 will return BIG or SMALl, m2 will return 0-27
         val letterCapitalization = intent.getStringExtra("m1")
@@ -55,6 +66,30 @@ class SimulationActivity : AppCompatActivity() {
         val saveButton = findViewById<ImageView>(R.id.btn_save)
         saveButton.setOnClickListener{
             saveImage()
+
+            val filePath = "/storage/emulated/0/Android/data/com.example.filwritingassistant/files/.images/simulation.jpg"
+            val bitmap = BitmapFactory.decodeFile(filePath)
+
+            val prepedImg = preprocess(bitmap)
+
+            // Creates inputs for reference.
+            val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 32, 32, 1), DataType.FLOAT32)
+            inputFeature0.loadBuffer(prepedImg)
+
+            // Runs model inference and gets result.
+            val outputs = model.process(inputFeature0)
+            val outputFeature0 = outputs.outputFeature0AsTensorBuffer
+
+            // Get the predicted class index and probability value
+            val prediction = outputFeature0.floatArray
+            val classIndexValue = prediction.indexOf(prediction.maxOrNull()!!)
+            val probValue = prediction.maxOrNull()!!
+
+            // change this into pop up
+            Toast.makeText(this, "picker:$index | model:$classIndexValue | probVal:$probValue", Toast.LENGTH_LONG).show()
+
+            // Releases model resources if no longer used.
+            model.close()
         }
 
 
@@ -2490,9 +2525,14 @@ class SimulationActivity : AppCompatActivity() {
     private fun saveImage() {
         val paintView = findViewById<PaintView>(R.id.paintView)
         val bitmap = paintView.getBitmapFromView()
+        // Create a bitmap with white background
+        val whiteBitmap = Bitmap.createBitmap(bitmap.width, bitmap.height, Bitmap.Config.ARGB_8888)
+        whiteBitmap.setHasAlpha(false) // Set alpha channel to fully opaque
+        val canvas = Canvas(whiteBitmap)
+        canvas.drawColor(Color.WHITE) // Draw white background
+        canvas.drawBitmap(bitmap, 0f, 0f, null)
 
-
-        //path: /storage/emulated/0/Android/data/filwritingassistant/files/.images/simulation.jpg
+        // Save bitmap to file
         val imagesFolder = File(getExternalFilesDir(null), ".images")
         if (!imagesFolder.exists()) {
             imagesFolder.mkdirs()
@@ -2502,20 +2542,64 @@ class SimulationActivity : AppCompatActivity() {
 
         try {
             val outputStream = FileOutputStream(file)
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
+            whiteBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
             outputStream.flush()
             outputStream.close()
             Toast.makeText(this, "Image saved successfully", Toast.LENGTH_SHORT).show()
+
         } catch (e: Exception) {
             Toast.makeText(this, "Failed to save image", Toast.LENGTH_SHORT).show()
             e.printStackTrace()
         }
     }
 
+    fun preprocess(bitmap: Bitmap): ByteBuffer {
+        // Resize the bitmap to (32, 32)
+        val resizedBitmap = Bitmap.createScaledBitmap(bitmap, 32, 32, false)
 
+        // Convert the resized bitmap to a float array
+        val floatArray = FloatArray(32 * 32)
+        for (i in 0 until 32) {
+            for (j in 0 until 32) {
+                val pixel = resizedBitmap.getPixel(j, i)
+                val gray = (Color.red(pixel) + Color.green(pixel) + Color.blue(pixel)) / 3.0f
+                floatArray[i * 32 + j] = gray / 255.0f
+            }
+        }
+
+        // Create a byte buffer and copy the float array to it
+        val byteBuffer = ByteBuffer.allocateDirect(4 * 1 * 32 * 32)
+        byteBuffer.order(ByteOrder.nativeOrder())
+        for (i in 0 until 32) {
+            for (j in 0 until 32) {
+                byteBuffer.putFloat(floatArray[i * 32 + j])
+            }
+        }
+        byteBuffer.rewind()
+
+        return byteBuffer
+    }
 }
 
+private fun FloatArray?.indexOf(maxOrNull: Float): Any {
+    fun <T> T?.default(defaultValue: T): T {
+        return this ?: defaultValue
+    }
 
+    if (this == null) return default(-1)
+
+    var maxIndex = -1
+    var maxValue = Float.NEGATIVE_INFINITY
+    for (i in this.indices) {
+        if (this[i] == maxOrNull) {
+            return i
+        } else if (this[i] > maxValue) {
+            maxValue = this[i]
+            maxIndex = i
+        }
+    }
+    return maxIndex.default(-1)
+}
 
 
 
