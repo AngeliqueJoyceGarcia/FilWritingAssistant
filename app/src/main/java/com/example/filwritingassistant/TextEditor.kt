@@ -124,7 +124,7 @@ class TextEditor : AppCompatActivity() {
         val upload = findViewById<ImageView>(R.id.btnupload)
 
         //setting the recognized text to text editor
-        /**texteditor = findViewById(R.id.et_text_editor)**/
+
         val text = intent.getStringExtra("text")
         val text_view = intent.getStringExtra("fileContent")
         texteditor.setText(text ?: text_view)
@@ -292,9 +292,8 @@ class TextEditor : AppCompatActivity() {
         }
 
         /** Checking the grammar of edit text content **/
-        // suggestion list & text editor variable
+        // suggestion list
         val suggestions = findViewById<ListView>(R.id.lvsuggestions)
-        //texteditor = findViewById(R.id.et_text_editor)
 
         // Create an empty list to hold suggestions
         val suggestionList = mutableListOf<String>()
@@ -390,7 +389,6 @@ class TextEditor : AppCompatActivity() {
                     adapter.notifyDataSetChanged()
                 }// end of for (sentence in sentences)
 
-
                 val tokenArray = tokenize(text.toString().lowercase())
                 val getPattern = getPattern(tokenArray)
                 val closestPattern = findClosestPattern(getPattern)
@@ -399,7 +397,7 @@ class TextEditor : AppCompatActivity() {
                 if (hint.isNotEmpty()) {
                     suggestionList.add("Did you mean: " + hint.joinToString(separator = " "))
                 } else {
-                    suggestionList.add("No rearrangement suggestion for now")
+                    suggestionList.add("No re-arrangement suggestion for now")
                 }
 
                 adapter.notifyDataSetChanged()
@@ -648,8 +646,6 @@ class TextEditor : AppCompatActivity() {
     }
 
     private fun saveFile(fileName: String) {
-
-        //texteditor = findViewById(R.id.et_text_editor)
 
         val fileText = texteditor.text.toString()
         val file =
