@@ -305,7 +305,6 @@ class TextEditor : AppCompatActivity() {
         // Add a text change listener to the text editor
         texteditor.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
             override fun afterTextChanged(s: Editable?) {
 
@@ -382,17 +381,28 @@ class TextEditor : AppCompatActivity() {
                             prevToken = token
                         }
                     } else {// Step 2.2: not part of titles and the first letter is lowercase
-                        suggestionList.add("Please capitalize the first letter of the: ${tokens.first()}")
+                        if (tokens.first().isNotEmpty()) {
+                            suggestionList.add("Please capitalize the first letter of: ${tokens.first()}")
+                        }
+
+
                     }
 
                     // Update the adapter with the new suggestion list
                     adapter.notifyDataSetChanged()
                 }// end of for (sentence in sentences)
 
-                val tokenArray = tokenize(text.toString().lowercase())
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // Step 5: Rearrange if possible
+                val alt_text = s.toString().lowercase()
+
+                val tokenArray = tokenize(alt_text)
                 val getPattern = getPattern(tokenArray)
                 val closestPattern = findClosestPattern(getPattern)
-                val hint = rearrange(closestPattern, getPattern, tokenArray.toString())
+                val hint = rearrange(closestPattern, getPattern, alt_text)
 
                 if (hint.isNotEmpty()) {
                     suggestionList.add("Did you mean: " + hint.joinToString(separator = " "))
@@ -494,7 +504,6 @@ class TextEditor : AppCompatActivity() {
     fun rearrange(patternToUse: List<String>?, queryPattern: List<String>?, text: String?): List<String> {
         // Check for null values
         if (patternToUse?.contains("unknown") == true || queryPattern?.contains("unknown") == true || text == null) {
-            println("One or more input variables are unknown. Process can't be done.")
             return emptyList()
         }
 
@@ -502,7 +511,6 @@ class TextEditor : AppCompatActivity() {
         // Check length of query_pattern and token_array
         if (queryPattern != null) {
             if (queryPattern.size != tokenArray.size) {
-                println("Length of query_pattern and token_array lists should be equal. Process can't be done.")
                 return emptyList()
             }
         }
