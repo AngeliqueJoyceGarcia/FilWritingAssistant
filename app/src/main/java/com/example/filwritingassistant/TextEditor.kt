@@ -125,8 +125,10 @@ class TextEditor : AppCompatActivity() {
 
         //setting the recognized text to text editor
         texteditor = findViewById(R.id.et_text_editor)
-        val text = intent.getStringExtra("fileContent")
-        texteditor.setText(text)
+        val text = intent.getStringExtra("text")
+        val text_view = intent.getStringExtra("fileContent")
+        texteditor.setText(text ?: text_view)
+
 
         /** Getting the current user that was logged in to the system **/
         user = FirebaseAuth.getInstance()
