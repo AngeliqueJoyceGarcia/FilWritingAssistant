@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ImageView
@@ -14,6 +15,7 @@ import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.firebase.auth.FirebaseAuth
@@ -29,6 +31,8 @@ class DashboardActivity : AppCompatActivity() {
     lateinit var drawer: DrawerLayout
     private lateinit var user : FirebaseAuth
     private lateinit var worksListView: ListView
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
@@ -214,11 +218,14 @@ class DashboardActivity : AppCompatActivity() {
         startActivity(startMain)
         finish()
     }
-
+    var isLongPressed = false
     fun viewWorks() {
+
+        val deleteButton = findViewById<ImageView>(R.id.deleteButton)
         // Get a reference to the Firebase Storage instance and to the current user's UID
         val storage = FirebaseStorage.getInstance()
         val uid = user.currentUser?.uid ?: return
+        deleteButton.visibility = View.GONE
 
         // Create a reference to the 'works' folder in the current user's storage
         val worksRef = storage.reference.child("users").child(uid).child("works")
@@ -244,38 +251,129 @@ class DashboardActivity : AppCompatActivity() {
                 fileNames.add(fileName)
             }
 
+
+
             // Create an adapter for the list view and set it to the 'works' list view
-            val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, fileNames)
+            val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, fileNames)
             worksListView.adapter = adapter
 
-            // Add an item click listener to the 'works' list view
+
+            // Initialize an empty set to store the selected item positions
+            val selectedPositions = mutableSetOf<Int>()
+
+            worksListView.setOnItemLongClickListener { parent, view, position, id ->
+                // Set isLongPressed to true to enable multiple selection
+                isLongPressed = true
+
+                worksListView.choiceMode = ListView.CHOICE_MODE_MULTIPLE
+
+                // Check if the clicked item is already selected
+                val alreadySelected = worksListView.isItemChecked(position)
+
+                // Toggle the selection state of the clicked item
+                worksListView.setItemChecked(position, !alreadySelected)
+
+                if (!alreadySelected) {
+                    // Add the selected position to the set
+                    selectedPositions.add(position)
+                } else {
+                    // Remove the deselected position from the set
+                    selectedPositions.remove(position)
+                }
+
+                val selectedCount = selectedPositions.size
+
+                // Show the delete button only when at least one item is selected
+                deleteButton.visibility = if (selectedCount > 0) View.VISIBLE else View.GONE
+
+                true
+            }
+
+            // Add a click listener to the delete button
+            deleteButton.setOnClickListener {
+                val selectedPositions = worksListView.checkedItemPositions
+                for (i in 0 until selectedPositions.size()) {
+                    if (selectedPositions.valueAt(i)) {
+                        // Get the name of the selected file
+                        val selectedFileName = fileNames[selectedPositions.keyAt(i)]
+
+                        // Create a reference to the selected file in the 'works' folder
+                        val selectedFileRef = worksRef.child(selectedFileName)
+
+                        // Delete the selected file
+                        selectedFileRef.delete().addOnSuccessListener {
+                            // Remove the deleted file from the list view
+                            fileNames.remove(selectedFileName)
+                            adapter.notifyDataSetChanged()
+
+                            // Uncheck all the items in the list view
+                            worksListView.clearChoices()
+                        }.addOnFailureListener { exception ->
+                            // Handle any errors that occur during the delete
+                            Log.e("viewWorks", "Error deleting file: $exception")
+                            Toast.makeText(this, "Error deleting file", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+
+                isLongPressed = false
+                worksListView.invalidateViews()
+                deleteButton.visibility = View.GONE
+            }
+
+
             worksListView.setOnItemClickListener { _, _, position, _ ->
-                // Get the name of the selected file
-                val selectedFileName = fileNames[position]
+                if (isLongPressed) {
+                    // Check if the item has been selected previously
+                    val alreadySelected = selectedPositions.contains(position)
 
-                // Create a reference to the selected file in the 'works' folder
-                val selectedFileRef = worksRef.child(selectedFileName)
+                    // Toggle the selection state of the clicked item
+                    worksListView.setItemChecked(position, !alreadySelected)
 
-                // Download the content of the selected file
-                selectedFileRef.getBytes(Long.MAX_VALUE).addOnSuccessListener { fileBytes ->
-                    // Convert the downloaded bytes to a string
-                    val fileContent = String(fileBytes)
+                    if (!alreadySelected) {
+                        // Add the selected position to the set
+                        selectedPositions.add(position)
+                    } else {
+                        // Remove the deselected position from the set
+                        selectedPositions.remove(position)
+                    }
 
-                    // Launch the TextEditorActivity with the content of the selected file passed as an extra in the intent
-                    val intent = Intent(this, TextEditor::class.java)
-                    intent.putExtra("fileContent", fileContent)
-                    intent.putExtra("filenames", selectedFileName)
-                    startActivity(intent)
-                }.addOnFailureListener { exception ->
-                    // Handle any errors that occur during the download
-                    Log.e("viewWorks", "Error downloading file: $exception")
-                    Toast.makeText(this, "Error downloading file", Toast.LENGTH_SHORT).show()
+                    val selectedCount = selectedPositions.size
+
+                    // Show the delete button only when at least one item is selected
+                    deleteButton.visibility = if (selectedCount > 0) View.VISIBLE else View.GONE
+                } else {
+                    // Get the name of the selected file
+                    val selectedFileName = fileNames[position]
+
+                    // Create a reference to the selected file in the 'works' folder
+                    val selectedFileRef = worksRef.child(selectedFileName)
+
+                    // Download the content of the selected file
+                    selectedFileRef.getBytes(Long.MAX_VALUE).addOnSuccessListener { fileBytes ->
+                        // Convert the downloaded bytes to a string
+                        val fileContent = String(fileBytes)
+
+                        // Launch the TextEditorActivity with the content of the selected file passed as an extra in the intent
+                        val intent = Intent(this, TextEditor::class.java)
+                        intent.putExtra("fileContent", fileContent)
+                        intent.putExtra("filenames", selectedFileName)
+                        startActivity(intent)
+                    }.addOnFailureListener { exception ->
+                        // Handle any errors that occur during the download
+                        Log.e("viewWorks", "Error downloading file: $exception")
+                        Toast.makeText(this, "Error downloading file", Toast.LENGTH_SHORT).show()
+                    }
+
+                    // Clear all the choices in the list view and hide the delete button
+                    worksListView.clearChoices()
+                    deleteButton.visibility = View.GONE
                 }
             }
+
+
         }
     }
-
-
 
 
 }
