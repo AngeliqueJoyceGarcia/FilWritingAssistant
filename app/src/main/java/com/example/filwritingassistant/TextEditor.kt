@@ -38,7 +38,7 @@ class TextEditor : AppCompatActivity() {
     private val readRequestCode = 0
     lateinit var drawer: DrawerLayout
     private var storageRef = FirebaseStorage.getInstance()
-    //private lateinit var textEditor: EditText
+
 
     /** 1 : For Grammar checking **/
     private lateinit var wordset: List<String>
@@ -115,7 +115,7 @@ class TextEditor : AppCompatActivity() {
 
         //for saving in cloud
         val savetoCloud = findViewById<ImageView>(R.id.btntocloud)
-        texteditor = findViewById(R.id.et_text_editor)
+        texteditor = findViewById(R.id.et_text_editor) // First initialization of text editor
 
         //for download in the device
         val downloadToDevice = findViewById<ImageView>(R.id.btntodevice)
@@ -124,7 +124,7 @@ class TextEditor : AppCompatActivity() {
         val upload = findViewById<ImageView>(R.id.btnupload)
 
         //setting the recognized text to text editor
-        texteditor = findViewById(R.id.et_text_editor)
+        /**texteditor = findViewById(R.id.et_text_editor)**/
         val text = intent.getStringExtra("text")
         val text_view = intent.getStringExtra("fileContent")
         texteditor.setText(text ?: text_view)
@@ -294,7 +294,7 @@ class TextEditor : AppCompatActivity() {
         /** Checking the grammar of edit text content **/
         // suggestion list & text editor variable
         val suggestions = findViewById<ListView>(R.id.lvsuggestions)
-        texteditor = findViewById(R.id.et_text_editor)
+        //texteditor = findViewById(R.id.et_text_editor)
 
         // Create an empty list to hold suggestions
         val suggestionList = mutableListOf<String>()
@@ -649,7 +649,7 @@ class TextEditor : AppCompatActivity() {
 
     private fun saveFile(fileName: String) {
 
-        texteditor = findViewById(R.id.et_text_editor)
+        //texteditor = findViewById(R.id.et_text_editor)
 
         val fileText = texteditor.text.toString()
         val file =
