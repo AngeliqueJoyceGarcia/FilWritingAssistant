@@ -38,7 +38,7 @@ class TextEditor : AppCompatActivity() {
     private val readRequestCode = 0
     lateinit var drawer: DrawerLayout
     private var storageRef = FirebaseStorage.getInstance()
-    private lateinit var textEditor: EditText
+    //private lateinit var textEditor: EditText
 
     /** 1 : For Grammar checking **/
     private lateinit var wordset: List<String>
@@ -115,7 +115,7 @@ class TextEditor : AppCompatActivity() {
 
         //for saving in cloud
         val savetoCloud = findViewById<ImageView>(R.id.btntocloud)
-        textEditor = findViewById(R.id.et_text_editor)
+        texteditor = findViewById(R.id.et_text_editor)
 
         //for download in the device
         val downloadToDevice = findViewById<ImageView>(R.id.btntodevice)
@@ -220,7 +220,7 @@ class TextEditor : AppCompatActivity() {
         }
 
         savetoCloud.setOnClickListener {
-            val data = textEditor.text.toString()
+            val data = texteditor.text.toString()
             user.currentUser?.let {
                 try {
                     val userWorksRef = storageRef.getReference("users/" + it.uid + "/works")
@@ -618,7 +618,7 @@ class TextEditor : AppCompatActivity() {
             resultData?.data?.also { uri ->
                 val inputStream = contentResolver.openInputStream(uri)
                 val text = inputStream?.bufferedReader()?.use { it.readText() }
-                textEditor.setText(text)
+                texteditor.setText(text)
             }
         }
     }
