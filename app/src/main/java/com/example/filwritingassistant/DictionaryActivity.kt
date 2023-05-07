@@ -225,10 +225,6 @@ class DictionaryActivity : AppCompatActivity() {
             defholder.visibility = View.VISIBLE
         }
 
-
-
-
-
         //set an event listener for the search button
         btnSearch.setOnClickListener {
             val searchText = search.text.toString().trim()

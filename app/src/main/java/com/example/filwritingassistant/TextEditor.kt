@@ -305,6 +305,7 @@ class TextEditor : AppCompatActivity() {
         // Add a text change listener to the text editor
         texteditor.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
             override fun afterTextChanged(s: Editable?) {
 
@@ -392,10 +393,6 @@ class TextEditor : AppCompatActivity() {
                     adapter.notifyDataSetChanged()
                 }// end of for (sentence in sentences)
 
-
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 // Step 5: Rearrange if possible
                 val alt_text = s.toString().lowercase()
 
@@ -414,7 +411,7 @@ class TextEditor : AppCompatActivity() {
             }
 
 
-        })
+            })
 
     }
 
