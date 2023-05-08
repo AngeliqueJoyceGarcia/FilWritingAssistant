@@ -100,36 +100,6 @@
                 android:textSize="17dp"
                 android:visibility="visible" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="20dp">
-
-                <ImageView
-                    android:id="@+id/ivFacebook"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/facebookicon" />
-
-                <ImageView
-                    android:id="@+id/ivPlayGames"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/playgamesicon" />
-
-                <ImageView
-                    android:id="@+id/ivGoogle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/googleicon" />
-            </LinearLayout>
-
 
         </LinearLayout>
 
