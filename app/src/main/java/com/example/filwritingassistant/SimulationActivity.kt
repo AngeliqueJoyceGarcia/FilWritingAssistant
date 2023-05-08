@@ -221,7 +221,7 @@ class SimulationActivity : AppCompatActivity() {
             }
 
             if (classIndexValue == index?.toInt()){
-                if (probValue >= 0.70){
+                if (probValue >= 0.90){
                     tvGrade.text = " IT'S $letterVal\n  GREAT JOB!"
                     resIc.setImageResource(R.drawable.great_button)
                 }
@@ -233,9 +233,6 @@ class SimulationActivity : AppCompatActivity() {
                 tvGrade.text = " IT WAS A \n GREAT EFFORT \n LET'S TRY \n IT AGAIN!"
                 resIc.setImageResource(R.drawable.smile_button)
             }
-
-            // Releases model resources if no longer used.
-            model.close()
 
 
         }
@@ -2698,10 +2695,8 @@ class SimulationActivity : AppCompatActivity() {
             whiteBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
             outputStream.flush()
             outputStream.close()
-            Toast.makeText(this, "Image saved successfully", Toast.LENGTH_SHORT).show()
 
         } catch (e: Exception) {
-            Toast.makeText(this, "Failed to save image", Toast.LENGTH_SHORT).show()
             e.printStackTrace()
         }
     }
