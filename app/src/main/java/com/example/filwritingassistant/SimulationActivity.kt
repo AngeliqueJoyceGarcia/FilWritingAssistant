@@ -6,16 +6,29 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Color
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.strictmode.WebViewMethodCalledOnWrongThreadViolation
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import android.widget.VideoView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.example.filwritingassistant.ml.Fwamodel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
+import org.w3c.dom.Text
 import java.io.File
 import java.io.FileOutputStream
 import java.nio.ByteBuffer
@@ -24,6 +37,9 @@ import java.nio.ByteOrder
 
 class SimulationActivity : AppCompatActivity() {
 
+    //for side menu
+    private lateinit var user : FirebaseAuth
+    lateinit var drawer: DrawerLayout
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -42,6 +58,87 @@ class SimulationActivity : AppCompatActivity() {
         val video = findViewById<VideoView>(R.id.videosimulator)
         val previous = findViewById<ImageView>(R.id.btnprevious)
         val next = findViewById<ImageView>(R.id.btnNext)
+        val popupHolder = findViewById<ConstraintLayout>(R.id.popupholder)
+
+        //for side menu
+        val sidemenu = findViewById<ImageView>(R.id.btnSideMenu6)
+        val home = findViewById<LinearLayout>(R.id.home)
+        val profile = findViewById<LinearLayout>(R.id.profile)
+        val aboutUs = findViewById<LinearLayout>(R.id.about)
+        val logout = findViewById<LinearLayout>(R.id.logout)
+        val database = FirebaseDatabase.getInstance().reference
+        val userName = findViewById<TextView>(R.id.tvname)
+        val emailAddress = findViewById<TextView>(R.id.tvemail)
+
+
+        drawer = findViewById(R.id.parentsimulation)
+
+        /** Getting the current user that was logged in to the system **/
+        user = FirebaseAuth.getInstance()
+        val userCurrent = FirebaseAuth.getInstance().currentUser
+
+        /** Getting the current user that was logged in to the system **/
+        if(userCurrent!=null){
+            val email =userCurrent.email
+
+            if (email != null){
+                database.child("Profiles").orderByChild("email").equalTo(email).addListenerForSingleValueEvent(object :
+                    ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        for (profileSnapshot in dataSnapshot.children) {
+                            val profile = profileSnapshot.value as Map<*, *>
+                            val name = profile["name"] as String
+                            val email = profile["email"] as String
+
+                            Log.d("TAG", "Name: $name")
+                            Log.d("TAG", "Email: $email")
+
+                            if (name.isNotEmpty()) {
+                                userName.text = name
+                            }
+
+                            if (email.isNotEmpty()) {
+                                emailAddress.text = email
+                            }
+
+                            runOnUiThread {
+                                userName.text = name
+                                emailAddress.text = email
+                            }
+                            break
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        Toast.makeText(this@SimulationActivity, "Failed to retrieve data from database", Toast.LENGTH_SHORT).show()
+                    }
+                })
+            }
+        }
+
+        home.setOnClickListener {
+            startActivity(Intent(this, DashboardActivity::class.java))
+        }
+
+        profile.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
+
+        aboutUs.setOnClickListener {
+            startActivity(Intent(this, AppInfoActivity::class.java))
+        }
+
+        logout.setOnClickListener {
+            user.signOut()
+            Toast.makeText(this, "Successfully logged out :)", Toast.LENGTH_LONG).show()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
+
+        sidemenu.setOnClickListener {
+            openDrawer(drawer)
+        }
+
 
         //PaintView
         val paintView = findViewById<PaintView>(R.id.paintView)
@@ -70,6 +167,11 @@ class SimulationActivity : AppCompatActivity() {
             val filePath = "/storage/emulated/0/Android/data/com.example.filwritingassistant/files/.images/simulation.jpg"
             val bitmap = BitmapFactory.decodeFile(filePath)
 
+            //for result pop-up
+            val work = findViewById<ImageView>(R.id.simuResult)
+            val tvGrade = findViewById<TextView>(R.id.tvGrade)
+            val resIc = findViewById<ImageView>(R.id.resultIcon)
+
             val prepedImg = preprocess(bitmap)
 
             // Creates inputs for reference.
@@ -86,10 +188,69 @@ class SimulationActivity : AppCompatActivity() {
             val probValue = prediction.maxOrNull()!!
 
             // change this into pop up
-            Toast.makeText(this, "picker:$index | model:$classIndexValue | probVal:$probValue", Toast.LENGTH_LONG).show()
+            popupHolder.visibility = View.VISIBLE
+
+            work.setImageBitmap(bitmap)
+            var letterVal: String? = null
+            when (classIndexValue) {
+                0 -> letterVal = "A"
+                1 -> letterVal = "B"
+                2 -> letterVal = "C"
+                3 -> letterVal = "D"
+                4 -> letterVal = "E"
+                5 -> letterVal = "F"
+                6 -> letterVal = "G"
+                7 -> letterVal = "H"
+                8 -> letterVal = "I"
+                9 -> letterVal = "J"
+                10 -> letterVal = "K"
+                11 -> letterVal = "L"
+                12 -> letterVal = "M"
+                13 -> letterVal = "N"
+                14 -> letterVal = "Ñ"
+                15 -> letterVal = "NG"
+                16 -> letterVal = "O"
+                17 -> letterVal = "P"
+                18 -> letterVal = "Q"
+                19 -> letterVal = "R"
+                20 -> letterVal = "S"
+                21 -> letterVal = "T"
+                22 -> letterVal = "U"
+                23 -> letterVal = "V"
+                24 -> letterVal = "W"
+                25 -> letterVal = "X"
+                26 -> letterVal = "Y"
+                27 -> letterVal = "Z"
+            }
+
+            if (classIndexValue == index?.toInt()){
+                if (probValue >= 0.70){
+                    tvGrade.text = " IT'S $letterVal\n  GREAT JOB!"
+                    resIc.setImageResource(R.drawable.great_button)
+                }
+                else {
+                    tvGrade.text = " IT'S $letterVal\n  YOU'RE \n GETTING \n CLOSER!"
+                    resIc.setImageResource(R.drawable.gettingcloser_button)
+                }
+            }else {
+                tvGrade.text = " IT WAS A \n GREAT EFFORT \n LET'S TRY \n IT AGAIN!"
+                resIc.setImageResource(R.drawable.smile_button)
+            }
 
             // Releases model resources if no longer used.
             model.close()
+
+
+
+
+
+
+
+        }
+
+        val btnbackcanvass = findViewById<ImageView>(R.id.btnBackCanvass)
+        btnbackcanvass.setOnClickListener {
+            popupHolder.visibility = View.GONE
         }
 
 
@@ -2578,6 +2739,22 @@ class SimulationActivity : AppCompatActivity() {
         byteBuffer.rewind()
 
         return byteBuffer
+    }
+
+    fun openDrawer(drawer:DrawerLayout){
+        drawer.openDrawer(GravityCompat.START)
+
+    }
+
+    fun closeDrawer(drawer:DrawerLayout){
+        if(drawer.isDrawerOpen(GravityCompat.START)){
+            drawer.closeDrawer(GravityCompat.START)
+        }
+    }
+
+    override fun onPause(){
+        super.onPause()
+        closeDrawer(drawer)
     }
 }
 
