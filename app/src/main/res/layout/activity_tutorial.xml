@@ -38,10 +38,10 @@
 
         <ImageView
             android:id="@+id/logo_tutorial"
-            android:layout_width="37dp"
-            android:layout_height="69dp"
-
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="10dp"
             app:layout_constraintBottom_toBottomOf="@id/imageView3"
             app:layout_constraintEnd_toEndOf="@+id/imageView3"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -61,6 +61,7 @@
             android:paddingBottom="10dp"
             android:text="@string/cursive_tutorial"
             android:textColor="@color/black"
+            android:gravity="center"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
