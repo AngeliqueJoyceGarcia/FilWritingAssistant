@@ -27,9 +27,7 @@ class LoginActivity : AppCompatActivity() {
         /** Initializing Variables **/
         val login = findViewById<Button>(R.id.loginButton)
         val noAccount = findViewById<TextView>(R.id.tvNoAcc)
-        val google = findViewById<ImageView>(R.id.ivGoogle)
-        val facebook = findViewById<ImageView>(R.id.ivFacebook)
-        val playGames = findViewById<ImageView>(R.id.ivPlayGames)
+
 
         /** intent variable **/
         var intent: Intent?
@@ -80,9 +78,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        google.setOnClickListener {
 
-        }
     }
 
 

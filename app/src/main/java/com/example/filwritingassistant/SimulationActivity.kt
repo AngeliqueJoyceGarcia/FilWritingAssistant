@@ -238,11 +238,6 @@ class SimulationActivity : AppCompatActivity() {
             model.close()
 
 
-
-
-
-
-
         }
 
         val btnbackcanvass = findViewById<ImageView>(R.id.btnBackCanvass)
