@@ -60,6 +60,7 @@ class TextEditor : AppCompatActivity() {
     private lateinit var conjunction: List<String>
     private lateinit var interjection: List<String>
     private lateinit var adverb: List<String>
+    private lateinit var pronoun: List<String>
 
     //for side menu
     private lateinit var user : FirebaseAuth
@@ -88,22 +89,23 @@ class TextEditor : AppCompatActivity() {
         wordset = resources.openRawResource(R.raw.wordset).bufferedReader().readLines()
         wordList = wordset.map {it.lowercase()}
 
-        expression = resources.openRawResource(R.raw.expression).bufferedReader().readLines()
-        exclamation = resources.openRawResource(R.raw.exclamation).bufferedReader().readLines()
-        prefix = resources.openRawResource(R.raw.prefix).bufferedReader().readLines()
-        interrogative = resources.openRawResource(R.raw.interrogative).bufferedReader().readLines()
-        verb = resources.openRawResource(R.raw.verb).bufferedReader().readLines()
-        infinitive = resources.openRawResource(R.raw.infinitive).bufferedReader().readLines()
-        idiomatic = resources.openRawResource(R.raw.idiomatic).bufferedReader().readLines()
-        comparative = resources.openRawResource(R.raw.comparative).bufferedReader().readLines()
-        colloquial = resources.openRawResource(R.raw.colloquial).bufferedReader().readLines()
-        noun = resources.openRawResource(R.raw.noun).bufferedReader().readLines()
-        grammar = resources.openRawResource(R.raw.grammar).bufferedReader().readLines()
-        adjective = resources.openRawResource(R.raw.adjective).bufferedReader().readLines()
-        preposition = resources.openRawResource(R.raw.preposition).bufferedReader().readLines()
-        conjunction = resources.openRawResource(R.raw.conjunction).bufferedReader().readLines()
-        interjection = resources.openRawResource(R.raw.interjection).bufferedReader().readLines()
-        adverb = resources.openRawResource(R.raw.adverb).bufferedReader().readLines()
+        expression = resources.openRawResource(R.raw.expression).bufferedReader().readLines().map { it.lowercase() }
+        exclamation = resources.openRawResource(R.raw.exclamation).bufferedReader().readLines().map { it.lowercase() }
+        prefix = resources.openRawResource(R.raw.prefix).bufferedReader().readLines().map { it.lowercase() }
+        interrogative = resources.openRawResource(R.raw.interrogative).bufferedReader().readLines().map { it.lowercase() }
+        verb = resources.openRawResource(R.raw.verb).bufferedReader().readLines().map { it.lowercase() }
+        infinitive = resources.openRawResource(R.raw.infinitive).bufferedReader().readLines().map { it.lowercase() }
+        idiomatic = resources.openRawResource(R.raw.idiomatic).bufferedReader().readLines().map { it.lowercase() }
+        comparative = resources.openRawResource(R.raw.comparative).bufferedReader().readLines().map { it.lowercase() }
+        colloquial = resources.openRawResource(R.raw.colloquial).bufferedReader().readLines().map { it.lowercase() }
+        noun = resources.openRawResource(R.raw.noun).bufferedReader().readLines().map { it.lowercase() }
+        grammar = resources.openRawResource(R.raw.grammar).bufferedReader().readLines().map { it.lowercase() }
+        adjective = resources.openRawResource(R.raw.adjective).bufferedReader().readLines().map { it.lowercase() }
+        preposition = resources.openRawResource(R.raw.preposition).bufferedReader().readLines().map { it.lowercase() }
+        conjunction = resources.openRawResource(R.raw.conjunction).bufferedReader().readLines().map { it.lowercase() }
+        interjection = resources.openRawResource(R.raw.interjection).bufferedReader().readLines().map { it.lowercase() }
+        adverb = resources.openRawResource(R.raw.adverb).bufferedReader().readLines().map { it.lowercase() }
+        pronoun = resources.openRawResource(R.raw.pronoun).bufferedReader().readLines().map { it.lowercase() }
 
         // List of special cases
         val titles = listOf("mr.", "ms.", "mrs.", "dr.", "dra.", "atty.", "mr", "ms", "mrs", "dr", "dra", "atty")
@@ -403,6 +405,7 @@ class TextEditor : AppCompatActivity() {
 
                 if (hint.isNotEmpty()) {
                     suggestionList.add("Did you mean: " + hint.joinToString(separator = " "))
+
                 } else {
                     suggestionList.add("No re-arrangement suggestion for now")
                 }
@@ -463,18 +466,33 @@ class TextEditor : AppCompatActivity() {
     // for rearrangement side in NLP
     fun findClosestPattern(queryPattern: List<String>): List<String>? {
         val posPattern = listOf(
-            listOf("infinitive", "noun"),
-            listOf("interrogative", "verb", "noun"),
-            listOf("noun", "verb", "adverb"),
-            listOf("noun", "conjunction", "noun"),
-            listOf("adjective", "adverb", "noun"),
-            listOf("imperative", "noun", "verb"),
-            listOf("adjective", "noun", "verb"),
-            listOf("verb", "preposition", "noun"),
-            listOf("adjective", "grammar", "noun"),
-            listOf("idiomatic", "noun", "verb"),
-            listOf("comparative", "adjective", "noun"),
-            listOf("exclamation", "interjection")
+            // 3 token
+            listOf("adjective", "pronoun", "verb"), // E2
+            listOf("adjective", "grammar", "noun"), // E4, E5
+            listOf("grammar", "adverb", "noun"), // E6
+            listOf("grammar", "noun", "pronoun"), // E7
+            listOf("pronoun", "grammar", "adjective"), // E8
+            listOf("adverb", "pronoun", "adjective"), // E9, E10
+            listOf("adverb", "pronoun", "verb"), // E3
+            listOf("verb", "grammar", "adjective"), // E11
+            listOf("verb", "grammar", "noun"), // E12
+            listOf("noun", "pronoun", "adverb"), // E1
+            // 4 token
+            listOf("verb", "pronoun", "preposition", "noun"), // E1
+            listOf("verb", "pronoun", "preposition", "noun"), // E2, E3, E4
+            listOf("verb", "preposition", "adjective", "adverb"), // E5
+            listOf("verb", "pronoun", "grammar", "adjective"), // E9
+            listOf("verb", "grammar", "noun", "pronoun"), // E10, E11
+            listOf("verb", "grammar", "noun", "adverb"), // E12
+            listOf("adjective", "grammar", "noun", "adverb"), // E6, E7, E8
+            // 5 token
+            listOf("pronoun", "grammar", "verb", "preposition", "noun"), //E1. E2
+            listOf("verb", "preposition", "adjective", "grammar", "noun"), //E3
+            listOf("adjective", "adverb", "verb", "grammar", "noun"), //E4
+            listOf("adjective", "pronoun", "grammar", "verb", "adverb"), //E5
+            listOf("adjective", "pronoun", "grammar", "noun", "adverb"), //E7
+            listOf("noun", "pronoun", "verb", "adjective", "adverb"), //E6
+
         )
         var closestPattern: List<String>? = null
         var maxMatches = 0
@@ -530,22 +548,23 @@ class TextEditor : AppCompatActivity() {
 
         val identifiedTypes = mutableListOf<String>()
 
-        val wordLists = mapOf("expression" to resources.openRawResource(R.raw.expression).bufferedReader().readLines(),
-            "exclamation" to resources.openRawResource(R.raw.exclamation).bufferedReader().readLines(),
-            "adverb" to resources.openRawResource(R.raw.adverb).bufferedReader().readLines(),
-            "prefix" to resources.openRawResource(R.raw.prefix).bufferedReader().readLines(),
-            "interrogative" to resources.openRawResource(R.raw.interrogative).bufferedReader().readLines(),
-            "verb" to resources.openRawResource(R.raw.verb).bufferedReader().readLines(),
-            "infinitive" to resources.openRawResource(R.raw.infinitive).bufferedReader().readLines(),
-            "idiomatic" to resources.openRawResource(R.raw.idiomatic).bufferedReader().readLines(),
-            "comparative" to resources.openRawResource(R.raw.comparative).bufferedReader().readLines(),
-            "colloquial" to resources.openRawResource(R.raw.colloquial).bufferedReader().readLines(),
-            "noun" to resources.openRawResource(R.raw.noun).bufferedReader().readLines(),
-            "grammar" to resources.openRawResource(R.raw.grammar).bufferedReader().readLines(),
-            "adjective" to resources.openRawResource(R.raw.adjective).bufferedReader().readLines(),
-            "preposition" to resources.openRawResource(R.raw.preposition).bufferedReader().readLines(),
-            "conjunction" to resources.openRawResource(R.raw.conjunction).bufferedReader().readLines(),
-            "interjection" to resources.openRawResource(R.raw.interjection).bufferedReader().readLines())
+        val wordLists = mapOf("expression" to resources.openRawResource(R.raw.expression).bufferedReader().readLines().map { it.lowercase() },
+            "exclamation" to resources.openRawResource(R.raw.exclamation).bufferedReader().readLines().map { it.lowercase() },
+            "adverb" to resources.openRawResource(R.raw.adverb).bufferedReader().readLines().map { it.lowercase() },
+            "prefix" to resources.openRawResource(R.raw.prefix).bufferedReader().readLines().map { it.lowercase() },
+            "interrogative" to resources.openRawResource(R.raw.interrogative).bufferedReader().readLines().map { it.lowercase() },
+            "verb" to resources.openRawResource(R.raw.verb).bufferedReader().readLines().map { it.lowercase() },
+            "infinitive" to resources.openRawResource(R.raw.infinitive).bufferedReader().readLines().map { it.lowercase() },
+            "idiomatic" to resources.openRawResource(R.raw.idiomatic).bufferedReader().readLines().map { it.lowercase() },
+            "comparative" to resources.openRawResource(R.raw.comparative).bufferedReader().readLines().map { it.lowercase() },
+            "colloquial" to resources.openRawResource(R.raw.colloquial).bufferedReader().readLines().map { it.lowercase() },
+            "noun" to resources.openRawResource(R.raw.noun).bufferedReader().readLines().map { it.lowercase() },
+            "grammar" to resources.openRawResource(R.raw.grammar).bufferedReader().readLines().map { it.lowercase() },
+            "adjective" to resources.openRawResource(R.raw.adjective).bufferedReader().readLines().map { it.lowercase() },
+            "preposition" to resources.openRawResource(R.raw.preposition).bufferedReader().readLines().map { it.lowercase() },
+            "conjunction" to resources.openRawResource(R.raw.conjunction).bufferedReader().readLines().map { it.lowercase() },
+            "interjection" to resources.openRawResource(R.raw.interjection).bufferedReader().readLines().map { it.lowercase() },
+            "pronoun" to resources.openRawResource(R.raw.pronoun).bufferedReader().readLines().map { it.lowercase() })
 
         for (token in tokenArray) {
             var found = false

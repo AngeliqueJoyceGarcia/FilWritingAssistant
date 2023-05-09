@@ -2727,7 +2727,6 @@ bukangbibig
 bukang-bibig
 bukang-isip
 bukang-liwayway
-bukas
 bukas na salikop
 bukas ng mukha
 bukasan o bubuksan
@@ -5117,7 +5116,6 @@ gusilaw
 gusot
 gusto
 gutli
-gutom
 guwang
 guwano
 guwantes
@@ -7169,7 +7167,6 @@ kaiksaktuhan
 kaiksian
 kailaliman
 kailanan
-kailangan
 kailanganin
 kailapan
 kaimbabawan
@@ -7739,7 +7736,6 @@ kamelya
 kamelyo
 kameo
 kamera
-kami
 kamiging
 kamilya
 kaminero
@@ -20573,7 +20569,6 @@ siyudad
 siyuting
 slum
 soborno
-sobra
 sobre
 sobrekama
 sobrekarga

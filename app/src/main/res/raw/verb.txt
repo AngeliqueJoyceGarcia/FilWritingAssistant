@@ -30,7 +30,6 @@ adhikain
 adornohan
 adresan
 adyusan
-agad
 agad-agad
 ag-agan
 agahan
@@ -607,6 +606,7 @@ biluhin
 bilutin
 bimbinin
 binatin
+binato
 binbimin
 binbinin
 bingalin
@@ -2722,6 +2722,7 @@ inglisin
 inikela
 iniksiyunan
 in-inin
+inihatid
 inisin
 inisyalan
 iniurong
@@ -3761,7 +3762,6 @@ kandung-kandungin
 kangina
 kaniigin
 kani-kanina
-kanin
 kanina
 kaniyahin
 kanlungan
@@ -4712,7 +4712,6 @@ maaburido
 maabutan
 maadwa
 maadya
-maaga
 maaga-aga
 maagad
 maagahan
@@ -5116,7 +5115,6 @@ mag-anak
 maganap
 mag-anasan
 mag-anayad
-maganda
 magandahan
 magandahin
 mag-andukha
@@ -8441,8 +8439,6 @@ mahilig
 mahiling
 mahilo
 mahimasmasan
-mahimbing
-mahimbing
 mahimok
 mahinagap
 mahinahon
@@ -10946,8 +10942,6 @@ nananabik
 nananaig
 nananalo
 nandon
-nang
-nang
 nang walang-paghahanda
 nangingibabaw
 nangingislap

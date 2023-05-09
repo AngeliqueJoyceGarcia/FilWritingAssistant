@@ -3553,7 +3553,6 @@ kandilihin
 kandungin
 kandung-kandungin
 kaniigin
-kanin
 kaniyahin
 kanlungan
 kanonisahin
@@ -8126,7 +8125,6 @@ mahilig
 mahiling
 mahilo
 mahimasmasan
-mahimbing
 mahimok
 mahinagap
 mahinain
