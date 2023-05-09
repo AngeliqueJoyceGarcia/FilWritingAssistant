@@ -221,12 +221,12 @@ class SimulationActivity : AppCompatActivity() {
             }
 
             if (classIndexValue == index?.toInt()){
-                if (probValue >= 0.90){
-                    tvGrade.text = " IT'S $letterVal\n  GREAT JOB!"
+                if (probValue >= 0.93){
+                    tvGrade.text = " IT'S $letterVal \n  GREAT JOB!"
                     resIc.setImageResource(R.drawable.great_button)
                 }
                 else {
-                    tvGrade.text = " IT'S $letterVal\n  YOU'RE \n GETTING \n CLOSER!"
+                    tvGrade.text = " IT'S $letterVal \n  YOU'RE \n GETTING \n CLOSER!"
                     resIc.setImageResource(R.drawable.gettingcloser_button)
                 }
             }else {

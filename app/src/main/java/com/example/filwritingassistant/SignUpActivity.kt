@@ -143,11 +143,9 @@ class SignUpActivity : AppCompatActivity() {
         /** Creating Users in Firebase**/
         user.createUserWithEmailAndPassword(email,password)
             .addOnCompleteListener(SignUpActivity()){task->
-                /** will redirect to login activity after successful user registration**/
                 if (task.isSuccessful){
                     Toast.makeText(this, "Sign up successful, please login to your account", Toast.LENGTH_LONG).show()
 
-                    /** Adding User Details to Firebase**/
                     val database = FirebaseDatabase.getInstance().reference
                     val key = database.child("Profiles").push().key
                     val registerUser = Users(email,password,name,bday,organization)
@@ -157,9 +155,7 @@ class SignUpActivity : AppCompatActivity() {
                     }
 
                     val uid = user.currentUser?.uid
-                    val storageRef = FirebaseStorage.getInstance().getReference("users/$uid/works") // set the directory path
-                    storageRef.child("example.txt").putBytes(ByteArray(0)) // put your file into the directory
-
+                    FirebaseStorage.getInstance().getReference("users/$uid/works").putBytes(ByteArray(0)) // Create an empty directory
 
                     startActivity(Intent(this, LoginActivity::class.java))
                     finish()
@@ -167,6 +163,8 @@ class SignUpActivity : AppCompatActivity() {
                     Toast.makeText(this, "Error $email $password $name $organization", Toast.LENGTH_LONG).show()
                 }
             }
+
+
     }
 
 
