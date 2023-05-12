@@ -405,19 +405,22 @@ class TextEditor : AppCompatActivity() {
                     adapter.notifyDataSetChanged()
                 }// end of for (sentence in sentences)
 
-                // Step 5: Rearrange if possible
+                // Step 4: Rearrange if possible
                 for (statement in sentences){
+                    // removing period
                     statement?.let {
                         val statementWithoutPeriod = if (it.endsWith('.')) {
                             it.removeSuffix(".")
                         } else {
                             it
                         }
+                        // getting the pattern and trying to re-arrange
                         val tokenArray = tokenize(statementWithoutPeriod.lowercase())
                         val getPattern = getPattern(tokenArray)
                         val closestPattern = findClosestPattern(getPattern)
                         val hint = rearrange(closestPattern, getPattern, tokenArray.toString())
 
+                        // if re-arrange is possible
                         if (hint.isNotEmpty()) {
                             suggestionList.add("Did you mean: " + hint.joinToString(separator = " "))
 
@@ -426,7 +429,7 @@ class TextEditor : AppCompatActivity() {
                         adapter.notifyDataSetChanged()
                     }
 
-                } // end of step 5
+                } // end of step 4
 
             }// end of aftertextchanged
 
