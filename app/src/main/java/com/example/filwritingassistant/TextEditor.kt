@@ -108,7 +108,9 @@ class TextEditor : AppCompatActivity() {
         pronoun = resources.openRawResource(R.raw.pronoun).bufferedReader().readLines().map { it.lowercase() }
 
         // List of special cases
-        val titles = listOf("mr.", "ms.", "mrs.", "dr.", "dra.", "atty.", "mr", "ms", "mrs", "dr", "dra", "atty")
+        val titles = listOf("mr.", "ms.", "mrs.", "dr.", "dra.", "atty.",
+                                       "mr", "ms", "mrs", "dr", "dra", "atty",
+                                       "g", "gng", "bb", "g.", "gng.", "bb.")
         val special_c = listOf("daw", "din", "dito", "diyan", "doon")
         val special_v = listOf("raw", "rin", "rito", "riyan", "roon")
         val vowels = listOf("a", "e", "i", "o", "u", "w", "y")
