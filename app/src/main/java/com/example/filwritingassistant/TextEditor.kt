@@ -7,6 +7,7 @@ import android.media.Image
 import android.os.Bundle
 import android.os.Environment
 import android.text.Editable
+import android.text.TextUtils.substring
 import android.text.TextWatcher
 import android.util.Log
 import android.widget.ArrayAdapter
@@ -376,9 +377,18 @@ class TextEditor : AppCompatActivity() {
                             else if (!wordList.contains(token.lowercase())){
                                 // Case 4a: Word is not in word list, suggest closest word using Levenshtein distance
                                 val closestWord = getClosestWord(token.lowercase())
+
                                 if (closestWord != null) {
+                                    val LCtoken = token.lowercase()
                                     val suggestion = "$token | Did you mean: $closestWord"
-                                    suggestionList.add(suggestion)
+
+                                    // if the word issue is the period only
+                                    if (LCtoken.endsWith(".")) {
+                                        if (LCtoken.substring(0, token.length - 1) != closestWord){
+                                            suggestionList.add(suggestion)
+                                        }
+                                    }// end of period checker
+
                                 }
                             }
 
