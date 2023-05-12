@@ -387,8 +387,6 @@ class TextEditor : AppCompatActivity() {
                         if (tokens.first().isNotEmpty()) {
                             suggestionList.add("Please capitalize the first letter of: ${tokens.first()}")
                         }
-
-
                     }
 
                     // Update the adapter with the new suggestion list
@@ -396,27 +394,33 @@ class TextEditor : AppCompatActivity() {
                 }// end of for (sentence in sentences)
 
                 // Step 5: Rearrange if possible
-                val alt_text = s.toString().lowercase()
+                for (statement in sentences){
+                    statement?.let {
+                        val statementWithoutPeriod = if (it.endsWith('.')) {
+                            it.removeSuffix(".")
+                        } else {
+                            it
+                        }
+                        val tokenArray = tokenize(statementWithoutPeriod.lowercase())
+                        val getPattern = getPattern(tokenArray)
+                        val closestPattern = findClosestPattern(getPattern)
+                        val hint = rearrange(closestPattern, getPattern, tokenArray.toString())
 
-                val tokenArray = tokenize(alt_text)
-                val getPattern = getPattern(tokenArray)
-                val closestPattern = findClosestPattern(getPattern)
-                val hint = rearrange(closestPattern, getPattern, alt_text)
+                        if (hint.isNotEmpty()) {
+                            suggestionList.add("Did you mean: " + hint.joinToString(separator = " "))
 
-                if (hint.isNotEmpty()) {
-                    suggestionList.add("Did you mean: " + hint.joinToString(separator = " "))
+                        }
 
-                } else {
-                    suggestionList.add("No re-arrangement suggestion for now")
-                }
+                        adapter.notifyDataSetChanged()
+                    }
 
-                adapter.notifyDataSetChanged()
-            }
+                } // end of step 5
 
+            }// end of aftertextchanged
 
-            })
+            })// end of texteditor.textchangedlistener
 
-    }
+    } // end of on create
 
     // Function to get the closest word in wordList using Levenshtein distance
     fun getClosestWord(word: String): String? {
@@ -576,7 +580,7 @@ class TextEditor : AppCompatActivity() {
                 }
             }
             if (!found) {
-                println("Unknown")
+                identifiedTypes.add("Unknown")
             }
         }
 
