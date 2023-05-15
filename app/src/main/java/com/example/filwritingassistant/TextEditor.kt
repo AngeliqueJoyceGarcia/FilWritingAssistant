@@ -373,28 +373,37 @@ class TextEditor : AppCompatActivity() {
                                     suggestionList.add("Instead of 'D' use 'R' in the first letter: $token")
                                 }
                             }
-                            // Case 4: Suggesting closest word from word list
-                            else if (!wordList.contains(token.lowercase())){
-                                // Case 4a: Word is not in word list, suggest closest word using Levenshtein distance
-                                val closestWord = getClosestWord(token.lowercase())
-
-                                if (closestWord != null) {
-                                    val LCtoken = token.lowercase()
-                                    val suggestion = "$token | Did you mean: $closestWord"
-
-                                    // if the word issue is the period only
-                                    if (LCtoken.endsWith(".")) {
-                                        if (LCtoken.substring(0, token.length - 1) != closestWord){
-                                            suggestionList.add(suggestion)
-                                        }
-                                    }// end of period checker
-
-                                }
-                            }
-
                             // Setting up previous token
                             prevToken = token
                         }
+
+                        // Case 4: Suggesting closest word from word list
+                        for (token in tokens){
+                            var token = token.lowercase()
+
+                            if (token.endsWith(".") && token !in titles) {
+                                // remove the period and check if the word is in the wordList
+
+                                val word = token.substring(0, token.length - 1)
+                                if (!wordList.contains(word.lowercase())) {
+
+                                    // find the closest word in the wordList using Levenshtein distance
+                                    val closestWord = wordList.minByOrNull { levenshteinDistance(word.lowercase(), it) }
+                                    val suggestion = if (closestWord != null) "Did you mean: $closestWord" else "Word not found"
+                                    suggestionList.add("$token | $suggestion")
+                                }
+                            } else if (!titles.contains(token.lowercase()) && !wordList.contains(token.lowercase())) {
+
+                                // find the closest word in the wordList using Levenshtein distance
+                                val closestWord = wordList.minByOrNull { levenshteinDistance(token.lowercase(), it) }
+                                val suggestion = if (closestWord != null) "Did you mean: $closestWord" else "Word not found"
+                                suggestionList.add("$token | $suggestion")
+                            } else if (wordList.contains(token.lowercase()) || token.isBlank()){
+                                // word is in the wordlist
+                                continue
+                            }
+                        }
+
                     } else {// Step 2.2: not part of titles and the first letter is lowercase
                         if (tokens.first().isNotEmpty()) {
                             suggestionList.add("Please capitalize the first letter of: ${tokens.first()}")
@@ -422,7 +431,9 @@ class TextEditor : AppCompatActivity() {
 
                         // if re-arrange is possible
                         if (hint.isNotEmpty()) {
-                            suggestionList.add("Did you mean: " + hint.joinToString(separator = " "))
+                            if (hint.toString() != tokenArray.toString()){
+                                suggestionList.add("Did you mean: " + hint.joinToString(separator = " "))
+                            }
 
                         }
 
