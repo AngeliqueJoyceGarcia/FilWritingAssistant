@@ -402,7 +402,7 @@ class TextEditor : AppCompatActivity() {
                                 // word is in the wordlist
                                 continue
                             }
-                        }
+                        }// end of case 4
 
                     } else {// Step 2.2: not part of titles and the first letter is lowercase
                         if (tokens.first().isNotEmpty()) {
