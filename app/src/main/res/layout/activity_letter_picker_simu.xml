@@ -37,7 +37,7 @@
         <ScrollView
             android:id="@+id/letterpickerholder"
             android:layout_width="match_parent"
-            android:layout_height="700dp"
+            android:layout_height="0dp"
             app:layout_constraintTop_toBottomOf="@id/imageView10"
             android:background="@drawable/dashboardcontainer"
             android:layout_marginLeft="20dp"
@@ -45,7 +45,7 @@
             android:layout_marginTop="20dp"
             android:paddingBottom="20dp"
             android:paddingTop="20dp"
-           >
+            app:layout_constraintHeight_percent="0.85">
 
             <LinearLayout
                 android:layout_width="match_parent"

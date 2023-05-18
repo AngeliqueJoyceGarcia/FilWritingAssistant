@@ -39,7 +39,6 @@ class DictionaryActivity : AppCompatActivity() {
 
         //for dictionary
         val search = findViewById<EditText>(R.id.edSearch)
-        val btnSearch = findViewById<ImageView>(R.id.btnSearch2)
         val searchedWord = findViewById<TextView>(R.id.tvSearchedWord)
         val partsofspeech = findViewById<TextView>(R.id.tvPOS)
         val definition = findViewById<TextView>(R.id.tvDefinition)
@@ -228,46 +227,6 @@ class DictionaryActivity : AppCompatActivity() {
             searchedWord.visibility = View.VISIBLE
         }
 
-        //set an event listener for the search button
-        btnSearch.setOnClickListener {
-            val searchText = search.text.toString().trim()
-
-            //query the database for words that start with the search text
-            val query = database.child("Filipino Dictionary")
-                .orderByChild("word ")
-                .startAt(searchText)
-                .endAt(searchText + "\uf8ff")
-
-            query.addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    //check if any matching words were found
-                    if (snapshot.exists()) {
-                        //get the first matching word
-                        val wordSnapshot = snapshot.children.first()
-
-                        //get the word details
-                        val word = wordSnapshot.child("word ").value.toString()
-                        val pos = wordSnapshot.child("parts or figure of speech").value.toString()
-                        val def = wordSnapshot.child("definition").value.toString()
-
-                        //display the word details in the UI
-                        searchedWord.text = word
-                        partsofspeech.text = pos
-                        definition.text = def
-                    } else {
-                        //no matching words found
-                        searchedWord.text = "No results found"
-                        partsofspeech.text = ""
-                        definition.text = ""
-                    }
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                    //handle any errors
-                    Log.e("DictionaryActivity", "Error querying database: ${error.message}")
-                }
-            })
-        }
     }
 
     fun openDrawer(drawer:DrawerLayout){

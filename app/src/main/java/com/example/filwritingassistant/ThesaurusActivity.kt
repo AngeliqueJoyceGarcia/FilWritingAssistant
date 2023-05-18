@@ -39,7 +39,6 @@ class ThesaurusActivity : AppCompatActivity() {
 
         //for dictionary
         val search = findViewById<EditText>(R.id.edSearch)
-        val btnSearch2 = findViewById<ImageView>(R.id.btnSearch2)
         val searchedWord = findViewById<TextView>(R.id.tvSearchedWord2)
         val resultSynonyms = findViewById<TextView>(R.id.tvSynonyms)
         val resultAntonyms = findViewById<TextView>(R.id.tvAntonym)
@@ -236,48 +235,6 @@ class ThesaurusActivity : AppCompatActivity() {
             holderA.visibility = View.VISIBLE
             holderS.visibility = View.VISIBLE
             line.visibility = View.VISIBLE
-        }
-
-        //set an event listener for the search button
-        btnSearch2.setOnClickListener {
-            val searchText = search.text.toString().trim()
-
-            //query the database for words that start with the search text
-            val query = database.child("Thesaurus")
-                .orderByChild("Word")
-                .startAt(searchText)
-                .endAt(searchText + "\uf8ff")
-
-            query.addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    //check if any matching words were found
-                    if (snapshot.exists()) {
-                        //get the first matching word
-                        val wordSnapshot = snapshot.children.first()
-
-                        //get the word details
-                        val word = wordSnapshot.child("Word ").value.toString()
-                        val antonyms = wordSnapshot.child("Antonym").value.toString()
-                        val synonyms = wordSnapshot.child("Synonym").value.toString()
-
-
-                        //display the word details in the UI
-                        searchedWord.text = word
-                        resultAntonyms.text = antonyms
-                        resultSynonyms.text = synonyms
-                    } else {
-                        //no matching words found
-                        searchedWord.text = "No results found"
-                        resultAntonyms.text = ""
-                        resultSynonyms.text = ""
-                    }
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                    //handle any errors
-                    Log.e("ThesaurusActivity", "Error querying database: ${error.message}")
-                }
-            })
         }
 
     }

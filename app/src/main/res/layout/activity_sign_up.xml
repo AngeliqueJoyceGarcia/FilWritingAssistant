@@ -204,8 +204,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="12dp"
+                android:textColor="@color/darkbrown"
                 android:text="Already have an account? Sign in "
-                android:textSize="17dp" />
+                android:textSize="17sp" />
 
 
         </LinearLayout>

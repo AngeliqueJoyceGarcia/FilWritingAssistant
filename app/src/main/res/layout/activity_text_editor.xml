@@ -8,150 +8,157 @@
     tools:context=".TextEditor"
     android:background="@drawable/bgdashboard">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageView7"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.96"
-            app:srcCompat="@drawable/dashboardtopcardview"
-            tools:ignore="ContentDescription" />
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/btnSideMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            app:layout_constraintBottom_toBottomOf="@id/imageView7"
-            app:layout_constraintHorizontal_bias="0.44"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/menuicon" />
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.96"
+                app:srcCompat="@drawable/dashboardtopcardview"
+                tools:ignore="ContentDescription" />
 
-        <EditText
-            android:id="@+id/et_text_editor"
-            android:layout_width="match_parent"
-            android:layout_height="370dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/dashboardcontainer"
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="Type your work here..."
-            android:inputType="textMultiLine"
-            android:padding="20dp"
-            android:selectAllOnFocus="true"
-            android:textColor="@color/darkbrown"
-            android:textIsSelectable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageView7" />
+            <ImageView
+                android:id="@+id/btnSideMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                app:layout_constraintBottom_toBottomOf="@id/imageView7"
+                app:layout_constraintHorizontal_bias="0.44"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/menuicon" />
 
-        <ScrollView
-            android:id="@+id/suggestions"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/dashboardcontainer"
-            android:elevation="10dp"
-            android:visibility="visible"
-            app:layout_constraintTop_toBottomOf="@id/et_text_editor"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent">
+            <EditText
+                android:id="@+id/et_text_editor"
+                android:layout_width="match_parent"
+                android:layout_height="370dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/dashboardcontainer"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="Type your work here..."
+                android:inputType="textMultiLine"
+                android:padding="20dp"
+                android:selectAllOnFocus="true"
+                android:textColor="@color/darkbrown"
+                android:textIsSelectable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageView7" />
+
+            <ScrollView
+                android:id="@+id/suggestions"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/dashboardcontainer"
+                android:elevation="10dp"
+                android:visibility="visible"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_text_editor">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Suggestions"
+                        android:textColor="@color/darkbrown"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:id="@+id/lines2"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#755c32"
+                        app:layout_constraintRight_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/holderImgRecog"
+                        tools:layout_editor_absoluteX="40dp"
+                        tools:layout_editor_absoluteY="622dp"
+
+                        />
+
+                    <ListView
+                        android:id="@+id/lvsuggestions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="140dp"
+                        android:layout_marginTop="10dp"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </ScrollView>
 
             <LinearLayout
+                android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="70dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginBottom="10dp"
-                android:orientation="vertical">
+                android:background="@drawable/texteditorbuttonholder"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/suggestions"
+                app:layout_constraintBottom_toBottomOf="parent">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:text="Suggestions"
-                    android:textColor="@color/darkbrown"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:id="@+id/lines2"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#755c32"
-                    app:layout_constraintRight_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/holderImgRecog"
-                    tools:layout_editor_absoluteX="40dp"
-                    tools:layout_editor_absoluteY="622dp"
-
-                    />
-
-                <ListView
-                    android:id="@+id/lvsuggestions"
+                <ImageView
+                    android:id="@+id/btntodevice"
                     android:layout_width="wrap_content"
-                    android:layout_height="140dp"
-                    android:layout_marginTop="10dp"
-                    android:textSize="18sp" />
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    app:srcCompat="@drawable/savetodeviceicon" />
+
+                <ImageView
+                    android:id="@+id/btntocloud"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    app:srcCompat="@drawable/savetocloudicon" />
+
+                <ImageView
+                    android:id="@+id/btnupload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    app:srcCompat="@drawable/uploadicon" />
             </LinearLayout>
-        </ScrollView>
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/texteditorbuttonholder"
-            android:orientation="horizontal"
-            android:padding="5dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/suggestions">
-
-            <ImageView
-                android:id="@+id/btntodevice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                app:srcCompat="@drawable/savetodeviceicon" />
-
-            <ImageView
-                android:id="@+id/btntocloud"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                app:srcCompat="@drawable/savetocloudicon" />
-
-            <ImageView
-                android:id="@+id/btnupload"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                app:srcCompat="@drawable/uploadicon" />
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
     <RelativeLayout
         android:layout_width="250dp"

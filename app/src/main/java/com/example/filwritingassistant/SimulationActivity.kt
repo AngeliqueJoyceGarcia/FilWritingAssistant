@@ -222,15 +222,15 @@ class SimulationActivity : AppCompatActivity() {
 
             if (classIndexValue == index?.toInt()){
                 if (probValue >= 0.93){
-                    tvGrade.text = " IT'S $letterVal \n  GREAT JOB!"
+                    tvGrade.text = " IT'S '$letterVal' \n  GREAT \n JOB!"
                     resIc.setImageResource(R.drawable.great_button)
                 }
                 else {
-                    tvGrade.text = " IT'S $letterVal \n  YOU'RE \n GETTING \n CLOSER!"
+                    tvGrade.text = " IT'S '$letterVal' \n  YOU'RE \n GETTING \n CLOSER!"
                     resIc.setImageResource(R.drawable.gettingcloser_button)
                 }
             }else {
-                tvGrade.text = " IT WAS A \n GREAT EFFORT \n LET'S TRY \n IT AGAIN!"
+                tvGrade.text = " IT WAS \n A GREAT \n EFFORT \n LET'S TRY \n IT AGAIN!"
                 resIc.setImageResource(R.drawable.smile_button)
             }
 
