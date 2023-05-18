@@ -1,6 +1,5 @@
 package com.example.filwritingassistant
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +8,6 @@ import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.StyleSpan
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -27,7 +25,7 @@ class LoginActivity : AppCompatActivity() {
         /** Initializing Variables **/
         val login = findViewById<Button>(R.id.loginButton)
         val noAccount = findViewById<TextView>(R.id.tvNoAcc)
-
+        val forgotPass = findViewById<TextView>(R.id.tvForgotPass)
 
         /** intent variable **/
         var intent: Intent?
@@ -78,8 +76,29 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        forgotPass.setOnClickListener {
+
+            val email = findViewById<TextView>(R.id.email).text.toString().trim()
+
+            if (email.isNotEmpty()) {
+                user.sendPasswordResetEmail(email)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(this, "Password reset email sent. Please check your inbox.", Toast.LENGTH_LONG).show()
+                        } else {
+                            Toast.makeText(this, "Failed to send password reset email. Please try again.", Toast.LENGTH_LONG).show()
+                        }
+                    }
+            } else {
+                Toast.makeText(this, "Please enter your email address.", Toast.LENGTH_LONG).show()
+            }
+        }
+
 
     }
+
+    
+
 
 
 }

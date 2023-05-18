@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.ContextThemeWrapper
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -33,6 +34,8 @@ class ProfileActivity : AppCompatActivity() {
         val userName = findViewById<EditText>(R.id.edName)
         bday = findViewById(R.id.edBirthday)
         val org = findViewById<EditText>(R.id.edOrganization)
+        val changePass = findViewById<LinearLayout>(R.id.changePassHolder)
+        val pass = findViewById<EditText>(R.id.tvPassword)
 
         /** Getting the current user that was logged in to the system **/
         user = FirebaseAuth.getInstance()
@@ -52,6 +55,7 @@ class ProfileActivity : AppCompatActivity() {
                         val email = profile["email"] as String
                         val birthday = profile["birthday"] as String
                         val organization = profile["organization"] as String
+                        val userPass = profile["password"] as String
 
                         if (name.isNotEmpty()) {
                             userName.setText(name)
@@ -67,6 +71,10 @@ class ProfileActivity : AppCompatActivity() {
 
                         if (organization.isNotEmpty()) {
                             org.setText(organization)
+                        }
+
+                        if (userPass.isNotEmpty()) {
+                            pass.setText(userPass)
                         }
 
                         runOnUiThread {
@@ -145,6 +153,10 @@ class ProfileActivity : AppCompatActivity() {
                     }
                 })
             }
+        }
+
+        changePass.setOnClickListener {
+            startActivity(Intent(this, ChangePasswordActivity::class.java))
         }
 
 

@@ -74,25 +74,10 @@
                 android:layout_margin="8dp"
                 android:layout_weight="1"
                 android:ems="10"
+                android:drawableRight="@drawable/searchicon"
+                android:textColor="@color/darkbrown"
                 android:hint="Search Filipino Word Here"
                 android:inputType="text" />
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:background="#755c32" />
-
-            <ImageView
-                android:id="@+id/btnSearch2"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/searchicon" />
 
         </LinearLayout>
 
@@ -120,21 +105,22 @@
 
         <TextView
             android:id="@+id/tvSearchedWord2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/labelworddictionary"
-            android:paddingLeft="100dp"
-            android:paddingTop="5dp"
-            android:paddingRight="100dp"
-            android:paddingBottom="5dp"
             android:text="WORD"
-            android:textColor="@color/white"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line4"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/line4" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:background="@drawable/labelworddictionary"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textAlignment="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp" />
 
         <TextView
             android:id="@+id/lblSynonyms"

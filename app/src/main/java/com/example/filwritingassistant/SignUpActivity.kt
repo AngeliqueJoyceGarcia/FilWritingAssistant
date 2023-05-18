@@ -5,12 +5,16 @@ import android.content.Intent
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputFilter
 import android.text.Spannable
 import android.text.SpannableString
+import android.text.Spanned
 import android.text.style.StyleSpan
 import android.view.ContextThemeWrapper
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.widget.Button
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -36,8 +40,11 @@ class SignUpActivity : AppCompatActivity() {
         val layout2 = findViewById<LinearLayout>(R.id.layout2)
         val submit = findViewById<Button>(R.id.btnSignup)
 
+        val passwordEditText = findViewById<EditText>(R.id.password)
 
-        bday = findViewById<TextView>(R.id.birthday)
+        addPasswordConstraint(passwordEditText)
+
+        bday = findViewById(R.id.birthday)
 
         /**Making the "Sign Up" bold in the tvNoAcc**/
         val string = "Already have an account? Sign in"
@@ -65,13 +72,14 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         next.setOnClickListener {
-            val email = findViewById<TextView>(R.id.email).text.toString()
-            val password = findViewById<TextView>(R.id.password).text.toString()
-            val cpassword = findViewById<TextView>(R.id.confirmPassword).text.toString()
+            val email = findViewById<EditText>(R.id.email).text.toString()
+            val password = findViewById<EditText>(R.id.password).text.toString()
+            val cpassword = findViewById<EditText>(R.id.confirmPassword).text.toString()
 
 
             /**checks if initial user details are complete**/
             if (email.isNotEmpty() && password.isNotEmpty() && cpassword.isNotEmpty()) {
+
                 /** runs if password is the same with confirm password**/
                 if (password == cpassword){
                     FirebaseAuth.getInstance().fetchSignInMethodsForEmail(email)
@@ -113,6 +121,8 @@ class SignUpActivity : AppCompatActivity() {
             showDatePickerDialog()
         }
 
+
+
         submit.setOnClickListener {
             val name = findViewById<TextView>(R.id.name)
             val organization = findViewById<TextView>(R.id.organization)
@@ -141,31 +151,73 @@ class SignUpActivity : AppCompatActivity() {
         user = FirebaseAuth.getInstance()
 
         /** Creating Users in Firebase**/
-        user.createUserWithEmailAndPassword(email,password)
-            .addOnCompleteListener(SignUpActivity()){task->
-                if (task.isSuccessful){
-                    Toast.makeText(this, "Sign up successful, please login to your account", Toast.LENGTH_LONG).show()
+        user.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    val currentUser = user.currentUser
 
-                    val database = FirebaseDatabase.getInstance().reference
-                    val key = database.child("Profiles").push().key
-                    val registerUser = Users(email,password,name,bday,organization)
+                    /** Sending email verification to user's email (if the user didn't verify their account, they cannot login**/
+                    currentUser?.sendEmailVerification()
+                        ?.addOnCompleteListener { verificationTask ->
+                            if (verificationTask.isSuccessful) {
+                                Toast.makeText(
+                                    this,
+                                    "Sign up successful. Please check your email for verification.",
+                                    Toast.LENGTH_LONG
+                                ).show()
 
-                    if (key != null){
-                        database.child("Profiles").child(key).setValue(registerUser)
-                    }
+                                val database = FirebaseDatabase.getInstance().reference
+                                val key = database.child("Profiles").push().key
+                                val registerUser = Users(email, password, name, bday, organization)
 
-                    val uid = user.currentUser?.uid
-                    FirebaseStorage.getInstance().getReference("users/$uid/works").putBytes(ByteArray(0)) // Create an empty directory
+                                if (key != null) {
+                                    database.child("Profiles").child(key).setValue(registerUser)
+                                }
 
-                    startActivity(Intent(this, LoginActivity::class.java))
-                    finish()
-                } else{
-                    Toast.makeText(this, "Error $email $password $name $organization", Toast.LENGTH_LONG).show()
+                                val uid = currentUser.uid
+                                FirebaseStorage.getInstance().getReference("users/$uid/works")
+                                    .putBytes(ByteArray(0)) // Create an empty directory
+
+                                startActivity(Intent(this, LoginActivity::class.java))
+                                finish()
+                            } else {
+                                Toast.makeText(
+                                    this,
+                                    "Failed to send verification email. Please try again.",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                        }
+                } else {
+                    Toast.makeText(
+                        this,
+                        "Error occurred during registration. Please try again.",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
-
-
     }
+
+
+    // Function to add the password constraint
+    fun addPasswordConstraint(editText: EditText) {
+        val minLength = 6
+
+        editText.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                val password = editText.text.toString()
+
+                if (password.length < minLength) {
+                    Toast.makeText(
+                        editText.context,
+                        "Password should be at least $minLength characters",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }
+    }
+
 
 
     /**shows the date picker in the birthdate textview and set the constraint (max day = yesterday)**/
@@ -177,7 +229,7 @@ class SignUpActivity : AppCompatActivity() {
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
         // Set the DatePickerDialog maximum date to one year before today's date
-        val maxDate = calendar.apply { add(Calendar.YEAR, -1) }.timeInMillis
+        val maxDate = calendar.apply { add(Calendar.YEAR, -5) }.timeInMillis
         val datePickerDialog = DatePickerDialog(
             ContextThemeWrapper(this, R.style.BrownDatePickerStyle),
             { _, year, monthOfYear, dayOfMonth ->

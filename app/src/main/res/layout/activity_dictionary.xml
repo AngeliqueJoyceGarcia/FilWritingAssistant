@@ -75,24 +75,9 @@
                 android:ems="10"
                 android:inputType="text"
                 android:layout_margin="8dp"
+                android:textColor="@color/darkbrown"
+                android:drawableRight="@drawable/searchicon"
                 android:hint="Search Filipino Word Here" />
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:background="#755c32" />
-
-            <ImageView
-                android:id="@+id/btnSearch2"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                app:srcCompat="@drawable/searchicon" />
 
         </LinearLayout>
 
@@ -110,7 +95,7 @@
 
         <TextView
             android:id="@+id/tvSearchedWord"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="WORD"
             app:layout_constraintTop_toBottomOf="@id/line"
@@ -118,12 +103,13 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:background="@drawable/labelworddictionary"
             android:textColor="@color/white"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:textStyle="bold"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:paddingLeft="100dp"
-            android:paddingRight="100dp"
+            android:textAlignment="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
             />
 

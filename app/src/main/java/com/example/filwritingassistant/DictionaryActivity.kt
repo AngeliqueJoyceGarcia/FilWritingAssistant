@@ -160,8 +160,9 @@ class DictionaryActivity : AppCompatActivity() {
                         // Show the suggestion list if there are suggestions to show
                         suggestionList.visibility = if (suggestions.isEmpty()) View.GONE else View.VISIBLE
 
-                        // Update the visibility of var1 based on the visibility of suggestionList
+                        // Update the visibility of defholder and searchedword based on the visibility of suggestionList
                         defholder.visibility = if (suggestionList.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+                        searchedWord.visibility = if (suggestionList.visibility == View.VISIBLE) View.GONE else View.VISIBLE
                     }
 
                     override fun onCancelled(error: DatabaseError) {
@@ -221,8 +222,10 @@ class DictionaryActivity : AppCompatActivity() {
                 }
             })
 
+
             suggestionList.visibility = View.GONE
             defholder.visibility = View.VISIBLE
+            searchedWord.visibility = View.VISIBLE
         }
 
         //set an event listener for the search button

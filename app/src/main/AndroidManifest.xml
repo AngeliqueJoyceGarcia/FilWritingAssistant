@@ -15,14 +15,14 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:icon="@drawable/main_flogo"
+        android:label="Filenggwahe"
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.FilWritingAssistant"
         tools:targetApi="31">
         <activity
-            android:name=".TryActivity"
+            android:name=".ChangePasswordActivity"
             android:exported="false" />
         <activity
             android:name=".SimulationActivity"

@@ -99,32 +99,41 @@
             android:drawableLeft="@drawable/about"
             android:drawablePadding="15dp"/>
     </LinearLayout>
-    
+
     <View
         android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="380dp"
-        android:background="#362312"/>
+        android:background="#362312" />
 
+
+    <!-- Logout LinearLayout -->
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/logout"
-        android:layout_marginEnd="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
-        android:orientation="horizontal">
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="20dp"
+        >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#362312"
-            android:text="Logout"
-            android:textSize="24sp"
             android:layout_margin="10dp"
             android:drawableLeft="@drawable/logouticon"
-            android:drawablePadding="15dp"/>
+            android:drawablePadding="15dp"
+            android:text="Logout"
+            android:textColor="#362312"
+            android:textSize="24sp"/>
     </LinearLayout>
 
 

@@ -70,7 +70,7 @@
                 android:background="@drawable/cardview"
                 android:drawableLeft="@drawable/passwordicon"
                 android:drawablePadding="8dp"
-                android:hint="Password"
+                android:hint="Password (atleast 6 chars.)"
                 android:padding="15dp"
                 android:textColor="@color/darkbrown"
                 android:visibility="visible" />

@@ -448,21 +448,6 @@ class TextEditor : AppCompatActivity() {
 
     } // end of on create
 
-    // Function to get the closest word in wordList using Levenshtein distance
-    fun getClosestWord(word: String): String? {
-        var minDistance = Int.MAX_VALUE
-        var closestWord: String? = null
-
-        for (w in wordList) {
-            val distance = levenshteinDistance(word, w)
-            if (distance < minDistance) {
-                minDistance = distance
-                closestWord = w
-            }
-        }
-
-        return closestWord
-    }
     fun levenshteinDistance(s: String, t: String): Int {
         val m = s.length
         val n = t.length

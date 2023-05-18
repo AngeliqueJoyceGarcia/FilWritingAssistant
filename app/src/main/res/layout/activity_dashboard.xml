@@ -9,432 +9,438 @@
     android:weightSum="10"
     tools:context=".DashboardActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.96"
-            app:srcCompat="@drawable/dashboardtopcardview"
-            tools:ignore="ContentDescription" />
-
-        <ImageView
-            android:id="@+id/btnSideMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintHorizontal_bias="0.44"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/imageView3"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/menuicon"  />
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="49dp"
-            android:layout_height="44dp"
-            app:layout_constraintBottom_toBottomOf="@id/imageView"
-            app:layout_constraintHorizontal_bias="0.95"
-            app:layout_constraintLeft_toLeftOf="@id/imageView"
-            app:layout_constraintRight_toRightOf="@id/imageView"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.263"
-            app:srcCompat="@drawable/main_flogo" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/dash"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="70dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="280dp"
-            android:background="@drawable/dashboardcontainer"
-            android:elevation="15dp">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/tvdashboard"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/cardview"
-                android:padding="7dp"
-                android:text="HOME"
-                android:textAlignment="center"
-                android:textColor="#0C0C0C"
-                android:textStyle="bold"
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.35"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.96"
+                app:srcCompat="@drawable/dashboardtopcardview"
+                tools:ignore="ContentDescription" />
 
-            <HorizontalScrollView
-                android:id="@+id/icons"
-                android:layout_width="280dp"
+            <ImageView
+                android:id="@+id/btnSideMenu"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:layout_marginBottom="10dp"
-                android:foregroundGravity="center"
-                app:layout_constraintBottom_toTopOf="@id/line"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintBottom_toBottomOf="@id/imageView3"
+                app:layout_constraintHorizontal_bias="0.44"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvdashboard">
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/menuicon" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:id="@+id/imagerecog"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="23dp"
-                        android:orientation="vertical"
-                        android:textAlignment="center">
-
-                        <ImageView
-                            android:id="@+id/btnrecog"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-
-                            app:srcCompat="@drawable/imagerecogicon" />
-
-                        <TextView
-                            android:id="@+id/textView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Image \n Recognition"
-                            android:textAlignment="center"
-                            android:textColor="#000000"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/texteditor"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="23dp"
-                        android:orientation="vertical"
-                        android:textAlignment="center">
-
-                        <ImageView
-                            android:id="@+id/btneditor"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/editoricon" />
-
-                        <TextView
-                            android:id="@+id/textView2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Text Editor"
-                            android:textAlignment="center"
-                            android:textColor="#000000"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/simulation"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="23dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:textAlignment="center">
-
-                        <ImageView
-                            android:id="@+id/btnsimulation"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/simulationicon" />
-
-                        <TextView
-                            android:id="@+id/textView3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Simulation"
-                            android:textAlignment="center"
-                            android:textColor="#000000"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/tutorial"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="23dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:textAlignment="center">
-
-                        <ImageView
-                            android:id="@+id/btnTutorial"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/tutorialicon" />
-
-                        <TextView
-                            android:id="@+id/textView4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="Tutorial"
-                            android:textAlignment="center"
-                            android:textColor="#000000"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/thesaurus"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="23dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:textAlignment="center">
-
-                        <ImageView
-                            android:id="@+id/btnThesaurus"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/dictionaryicon" />
-
-                        <TextView
-                            android:id="@+id/textView5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Thesaurus"
-                            android:textAlignment="center"
-                            android:textColor="#000000"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/dictionary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:textAlignment="center">
-
-                        <ImageView
-                            android:id="@+id/btnDictionary"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/thesaurusicon" />
-
-                        <TextView
-                            android:id="@+id/textView6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Dictionary"
-                            android:textAlignment="center"
-                            android:textColor="#000000"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                </LinearLayout>
-            </HorizontalScrollView>
-
-            <View
-                android:id="@+id/line"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:background="#755c32"
-                app:layout_constraintBottom_toTopOf="@id/worklayout"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/icons"
-                tools:layout_editor_absoluteX="20dp"
-                tools:layout_editor_absoluteY="140dp" />
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="49dp"
+                android:layout_height="44dp"
+                app:layout_constraintBottom_toBottomOf="@id/imageView"
+                app:layout_constraintHorizontal_bias="0.95"
+                app:layout_constraintLeft_toLeftOf="@id/imageView"
+                app:layout_constraintRight_toRightOf="@id/imageView"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.263"
+                app:srcCompat="@drawable/main_flogo" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/worklayout"
+                android:id="@+id/dash"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/viewworksbg"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/line">
+                android:layout_height="500dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="280dp"
+                android:background="@drawable/dashboardcontainer"
+                android:elevation="15dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/tvWork"
+                    android:id="@+id/tvdashboard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:padding="5dp"
-                    android:text="WORKS"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/cardview"
+                    android:padding="7dp"
+                    android:text="HOME"
                     android:textAlignment="center"
-                    android:textColor="@color/black"
+                    android:textColor="#0C0C0C"
                     android:textStyle="bold"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.35"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <HorizontalScrollView
+                    android:id="@+id/icons"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:foregroundGravity="center"
+                    app:layout_constraintBottom_toTopOf="@id/line"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvdashboard">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/imagerecog"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="23dp"
+                            android:orientation="vertical"
+                            android:textAlignment="center">
+
+                            <ImageView
+                                android:id="@+id/btnrecog"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+
+                                app:srcCompat="@drawable/imagerecogicon" />
+
+                            <TextView
+                                android:id="@+id/textView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Image \n Recognition"
+                                android:textAlignment="center"
+                                android:textColor="#000000"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/texteditor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="23dp"
+                            android:orientation="vertical"
+                            android:textAlignment="center">
+
+                            <ImageView
+                                android:id="@+id/btneditor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/editoricon" />
+
+                            <TextView
+                                android:id="@+id/textView2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Text Editor"
+                                android:textAlignment="center"
+                                android:textColor="#000000"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/simulation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="23dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:textAlignment="center">
+
+                            <ImageView
+                                android:id="@+id/btnsimulation"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/simulationicon" />
+
+                            <TextView
+                                android:id="@+id/textView3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Simulation"
+                                android:textAlignment="center"
+                                android:textColor="#000000"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/tutorial"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="23dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:textAlignment="center">
+
+                            <ImageView
+                                android:id="@+id/btnTutorial"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/tutorialicon" />
+
+                            <TextView
+                                android:id="@+id/textView4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Tutorial"
+                                android:textAlignment="center"
+                                android:textColor="#000000"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/thesaurus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="23dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:textAlignment="center">
+
+                            <ImageView
+                                android:id="@+id/btnThesaurus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/dictionaryicon" />
+
+                            <TextView
+                                android:id="@+id/textView5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Thesaurus"
+                                android:textAlignment="center"
+                                android:textColor="#000000"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/dictionary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:textAlignment="center">
+
+                            <ImageView
+                                android:id="@+id/btnDictionary"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/thesaurusicon" />
+
+                            <TextView
+                                android:id="@+id/textView6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Dictionary"
+                                android:textAlignment="center"
+                                android:textColor="#000000"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
                 <View
-                    android:id="@+id/lines"
+                    android:id="@+id/line"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:background="#755c32"
+                    app:layout_constraintBottom_toTopOf="@id/worklayout"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvWork" />
+                    app:layout_constraintTop_toBottomOf="@id/icons"
+                    tools:layout_editor_absoluteX="20dp"
+                    tools:layout_editor_absoluteY="140dp" />
 
-                <TextView
-                    android:id="@+id/tvnoWork"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="NO WORK"
-                    android:textSize="24sp"
-                    android:textStyle="italic"
-                    android:visibility="invisible"
-                    app:layout_constraintBottom_toBottomOf="@id/worklayout"
-                    app:layout_constraintLeft_toLeftOf="@id/worklayout"
-                    app:layout_constraintRight_toRightOf="@id/worklayout"
-                    app:layout_constraintTop_toBottomOf="@id/lines"
-                    app:layout_constraintVertical_bias="0.39" />
-
-
-                <ListView
-                    android:id="@+id/listWorks"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/worklayout"
                     android:layout_width="match_parent"
-                    android:layout_height="290dp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_height="300dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="5dp"
-                    app:layout_constraintTop_toBottomOf="@id/lines" />
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/viewworksbg"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/line">
+
+                    <TextView
+                        android:id="@+id/tvWork"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:padding="5dp"
+                        android:text="WORKS"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/lines"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="#755c32"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvWork" />
+
+                    <TextView
+                        android:id="@+id/tvnoWork"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NO WORK"
+                        android:textSize="24sp"
+                        android:textStyle="italic"
+                        android:visibility="invisible"
+                        app:layout_constraintBottom_toBottomOf="@id/worklayout"
+                        app:layout_constraintLeft_toLeftOf="@id/worklayout"
+                        app:layout_constraintRight_toRightOf="@id/worklayout"
+                        app:layout_constraintTop_toBottomOf="@id/lines"
+                        app:layout_constraintVertical_bias="0.39" />
+
+
+                    <ListView
+                        android:id="@+id/listWorks"
+                        android:layout_width="match_parent"
+                        android:layout_height="290dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="5dp"
+                        app:layout_constraintTop_toBottomOf="@id/lines" />
+
+                    <ImageView
+                        android:id="@+id/deleteButton"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/delete_viewworks" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tvAboutUs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:text="About Us"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.113"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dash"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginRight="25dp"
+                android:background="#755c32"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAboutUs" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cardview"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line2">
 
                 <ImageView
-                    android:id="@+id/deleteButton"
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/cvappinfo1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/delete_viewworks" />
+                    app:srcCompat="@drawable/cvappinfo" />
+
+                <ImageView
+                    android:id="@+id/cvappinfo2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/cvappinfo2" />
+
+                <ImageView
+                    android:id="@+id/cvappinfo3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/cvappinfo3" />
+
+                <ImageView
+                    android:id="@+id/cvappinfo4"
+                    android:layout_width="372dp"
+                    android:layout_height="182dp"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/cvappinfo4" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <TextView
-            android:id="@+id/tvAboutUs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
-            android:text="About Us"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.113"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/dash"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <View
-            android:id="@+id/line2"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginRight="25dp"
-            android:background="#755c32"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAboutUs" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cardview"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/line2">
-
-            <ImageView
-                android:id="@+id/cvappinfo1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/cvappinfo" />
-
-            <ImageView
-                android:id="@+id/cvappinfo2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/cvappinfo2" />
-
-            <ImageView
-                android:id="@+id/cvappinfo3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/cvappinfo3" />
-
-            <ImageView
-                android:id="@+id/cvappinfo4"
-                android:layout_width="372dp"
-                android:layout_height="182dp"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/cvappinfo4" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
     <RelativeLayout
         android:layout_width="250dp"
