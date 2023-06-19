@@ -134,12 +134,22 @@ class ImageRecognition : AppCompatActivity() {
             }
         }
 
-        proceed.setOnClickListener{
-            val text = output.text.toString() // get text from output TextView
-            val intent = Intent(this, TextEditor::class.java)
-            intent.putExtra("text", text) // pass text to TextEditorActivity
-            startActivity(intent) // start TextEditorActivity
+        val capturedImage = findViewById<ImageView>(R.id.ivCapturedImage)
+
+        proceed.setOnClickListener {
+            val defaultImageResource = R.drawable.defaultpictureimagerecog
+
+            if (capturedImage.drawable.constantState == resources.getDrawable(defaultImageResource).constantState) {
+                Toast.makeText(this, "No captured photo", Toast.LENGTH_SHORT).show()
+            } else {
+                val text = output.text.toString() // get text from output TextView
+                val intent = Intent(this, TextEditor::class.java)
+                intent.putExtra("text", text) // pass text to TextEditorActivity
+                startActivity(intent) // start TextEditorActivity
+            }
         }
+
+
 
         sidemenu.setOnClickListener {
             openDrawer(drawer)

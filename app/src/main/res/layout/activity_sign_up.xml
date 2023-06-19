@@ -66,11 +66,11 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="35dp"
                 android:layout_marginRight="30dp"
-                android:inputType="textPassword"
                 android:background="@drawable/cardview"
                 android:drawableLeft="@drawable/passwordicon"
                 android:drawablePadding="8dp"
                 android:hint="Password (atleast 6 chars.)"
+                android:inputType="textPassword"
                 android:padding="15dp"
                 android:textColor="@color/darkbrown"
                 android:visibility="visible" />
@@ -82,11 +82,11 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="35dp"
                 android:layout_marginRight="30dp"
-                android:inputType="textPassword"
                 android:background="@drawable/cardview"
                 android:drawableLeft="@drawable/passwordicon"
                 android:drawablePadding="8dp"
                 android:hint="Confirm password"
+                android:inputType="textPassword"
                 android:padding="15dp"
                 android:textColor="@color/darkbrown"
                 android:visibility="visible" />
@@ -144,7 +144,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="45dp"
                 android:layout_marginRight="30dp"
                 android:background="@drawable/cardview"
                 android:drawableLeft="@drawable/nameicon"
@@ -155,26 +155,11 @@
                 android:visibility="visible" />
 
             <EditText
-                android:id="@+id/birthday"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="35dp"
-                android:layout_marginRight="30dp"
-                android:background="@drawable/cardview"
-                android:drawableLeft="@drawable/calendaricon"
-                android:drawablePadding="8dp"
-                android:hint="Birthdate"
-                android:padding="15dp"
-                android:textColor="@color/darkbrown"
-                android:visibility="visible" />
-
-            <EditText
                 android:id="@+id/organization"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="45dp"
                 android:layout_marginRight="30dp"
                 android:background="@drawable/cardview"
                 android:drawableLeft="@drawable/organizationicon"
@@ -189,7 +174,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginRight="30dp"
                 android:backgroundTint="@color/darkbrown"
                 android:padding="15dp"
@@ -203,9 +188,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:padding="12dp"
-                android:textColor="@color/darkbrown"
                 android:text="Already have an account? Sign in "
+                android:textColor="@color/darkbrown"
                 android:textSize="17sp" />
 
 

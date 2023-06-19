@@ -21,7 +21,6 @@ import java.util.Calendar
 class ProfileActivity : AppCompatActivity() {
 
     private lateinit var user : FirebaseAuth
-    lateinit var bday : EditText
     private lateinit var userEmail : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +31,6 @@ class ProfileActivity : AppCompatActivity() {
         val btnsave = findViewById<TextView>(R.id.btnSave)
         val emailAddress = findViewById<EditText>(R.id.edEmail)
         val userName = findViewById<EditText>(R.id.edName)
-        bday = findViewById(R.id.edBirthday)
         val org = findViewById<EditText>(R.id.edOrganization)
         val changePass = findViewById<LinearLayout>(R.id.changePassHolder)
         val pass = findViewById<EditText>(R.id.tvPassword)
@@ -51,11 +49,10 @@ class ProfileActivity : AppCompatActivity() {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     for (profileSnapshot in dataSnapshot.children) {
                         val profile = profileSnapshot.value as Map<*, *>
-                        val name = profile["name"] as String
-                        val email = profile["email"] as String
-                        val birthday = profile["birthday"] as String
-                        val organization = profile["organization"] as String
-                        val userPass = profile["password"] as String
+                        val name = profile["name"] as? String ?: ""
+                        val email = profile["email"] as? String ?: ""
+                        val organization = profile["organization"] as? String ?: ""
+                        val userPass = profile["password"] as? String ?: ""
 
                         if (name.isNotEmpty()) {
                             userName.setText(name)
@@ -63,10 +60,6 @@ class ProfileActivity : AppCompatActivity() {
 
                         if (email.isNotEmpty()) {
                             emailAddress.setText(email)
-                        }
-
-                        if (birthday.isNotEmpty()) {
-                            bday.setText(birthday)
                         }
 
                         if (organization.isNotEmpty()) {
@@ -80,7 +73,6 @@ class ProfileActivity : AppCompatActivity() {
                         runOnUiThread {
                             userName.setText(name)
                             emailAddress.setText(email)
-                            bday.setText(birthday)
                             org.setText(organization)
                         }
 
@@ -98,10 +90,6 @@ class ProfileActivity : AppCompatActivity() {
 
         }
 
-        bday.setOnClickListener {
-            showDatePickerDialog()
-        }
-
         btncancel.setOnClickListener {
             startActivity(Intent(this, DashboardActivity::class.java))
         }
@@ -112,10 +100,9 @@ class ProfileActivity : AppCompatActivity() {
 
         btnsave.setOnClickListener {
             val name = userName.text.toString().trim()
-            val birthday = bday.text.toString().trim()
             val organization = org.text.toString().trim()
 
-            if (name.isEmpty() || birthday.isEmpty() || organization.isEmpty()) {
+            if (name.isEmpty() || organization.isEmpty()) {
                 Toast.makeText(this, "Please fill up all fields", Toast.LENGTH_SHORT).show()
             } else {
                 val database = FirebaseDatabase.getInstance().reference
@@ -125,16 +112,14 @@ class ProfileActivity : AppCompatActivity() {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
                         for (profileSnapshot in dataSnapshot.children) {
                             val savedName = profileSnapshot.child("name").value as String
-                            val savedBirthday = profileSnapshot.child("birthday").value as String
                             val savedOrganization = profileSnapshot.child("organization").value as String
 
-                            if (name == savedName && birthday == savedBirthday && organization == savedOrganization) {
+                            if (name == savedName && organization == savedOrganization) {
                                 // User details haven't changed
                                 Toast.makeText(this@ProfileActivity, "User details haven't changed", Toast.LENGTH_SHORT).show()
                             } else {
                                 // Update user details in Firebase
                                 profileSnapshot.ref.child("name").setValue(name)
-                                profileSnapshot.ref.child("birthday").setValue(birthday)
                                 profileSnapshot.ref.child("organization").setValue(organization)
                                 Toast.makeText(this@ProfileActivity, "Profile updated successfully", Toast.LENGTH_SHORT).show()
 
@@ -162,38 +147,4 @@ class ProfileActivity : AppCompatActivity() {
 
     }
 
-    /**shows the date picker in the birthdate textview and set the constraint (max day = yesterday)**/
-    private fun showDatePickerDialog() {
-        bday = findViewById(R.id.edBirthday)
-        // Get the current date as default
-        val calendar = Calendar.getInstance()
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
-
-        // Set the DatePickerDialog maximum date to one year before today's date
-        val maxDate = calendar.apply { add(Calendar.YEAR, -1) }.timeInMillis
-        val datePickerDialog = DatePickerDialog(
-            ContextThemeWrapper(this, R.style.BrownDatePickerStyle),
-            { _, year, monthOfYear, dayOfMonth ->
-                // Set the selected date to the TextView
-                val selectedDate = Calendar.getInstance().apply {
-                    set(year, monthOfYear, dayOfMonth)
-                }
-                val today = Calendar.getInstance()
-                if (selectedDate.before(today)) {
-                    val dateString = "$dayOfMonth/${monthOfYear + 1}/$year"
-                    bday.setText(dateString)
-                } else {
-                    Toast.makeText(this, "Please select a date before today", Toast.LENGTH_SHORT).show()
-                }
-            },
-            year,
-            month,
-            day
-        )
-        datePickerDialog.datePicker.maxDate = maxDate // Set the maximum date to one year before today's date
-        // Show the DatePickerDialog
-        datePickerDialog.show()
-    }
 }

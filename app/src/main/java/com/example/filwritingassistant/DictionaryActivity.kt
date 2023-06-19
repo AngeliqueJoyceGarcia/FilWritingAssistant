@@ -1,6 +1,8 @@
 package com.example.filwritingassistant
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -99,6 +101,15 @@ class DictionaryActivity : AppCompatActivity() {
                     }
                 })
             }
+        }
+
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo = connectivityManager.activeNetworkInfo
+
+        if (networkInfo == null || !networkInfo.isConnected) {
+            // Not connected to the internet
+            definition.hint = "Device is not connected to the internet, definition of the word cannot be displayed"
+            partsofspeech.hint = "Device is not connected to the internet, \n parts of speech cannot be displayed"
         }
 
         home.setOnClickListener {
