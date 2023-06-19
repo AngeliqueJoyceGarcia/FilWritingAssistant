@@ -1,8 +1,6 @@
 package com.example.filwritingassistant
 
-import android.content.Context
 import android.content.Intent
-import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -105,15 +103,6 @@ class ThesaurusActivity : AppCompatActivity() {
                     }
                 })
             }
-        }
-
-        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val networkInfo = connectivityManager.activeNetworkInfo
-
-        if (networkInfo == null || !networkInfo.isConnected) {
-            // Not connected to the internet
-            resultSynonyms.hint = "Device is not connected to the internet, synonyms cannot be displayed"
-            resultAntonyms.hint = "Device is not connected to the internet, antonyms cannot be displayed"
         }
 
         home.setOnClickListener {

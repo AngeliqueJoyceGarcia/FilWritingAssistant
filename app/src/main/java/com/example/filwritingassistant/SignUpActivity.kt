@@ -26,6 +26,7 @@ import java.util.*
 
 class SignUpActivity : AppCompatActivity() {
 
+    lateinit var bday: TextView
     private lateinit var user: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +43,8 @@ class SignUpActivity : AppCompatActivity() {
         val passwordEditText = findViewById<EditText>(R.id.password)
 
         addPasswordConstraint(passwordEditText)
+
+        bday = findViewById(R.id.birthday)
 
         /**Making the "Sign Up" bold in the tvNoAcc**/
         val string = "Already have an account? Sign in"
@@ -114,6 +117,9 @@ class SignUpActivity : AppCompatActivity() {
                 ).show()
             }
         }
+        bday.setOnClickListener {
+            showDatePickerDialog()
+        }
 
 
 
@@ -121,7 +127,7 @@ class SignUpActivity : AppCompatActivity() {
             val name = findViewById<TextView>(R.id.name)
             val organization = findViewById<TextView>(R.id.organization)
 
-            if(name.text.toString().isNotEmpty() && organization.text.toString().isNotEmpty()){
+            if(name.text.toString().isNotEmpty() && bday.text.toString().isNotEmpty() && organization.text.toString().isNotEmpty()){
                     registerUser()
             }
            /**runs if details are not complete**/
@@ -141,6 +147,7 @@ class SignUpActivity : AppCompatActivity() {
         val password = findViewById<TextView>(R.id.password).text.toString()
         val name = findViewById<TextView>(R.id.name).text.toString()
         val organization = findViewById<TextView>(R.id.organization).text.toString()
+        val bday = findViewById<TextView>(R.id.birthday).text.toString()
         user = FirebaseAuth.getInstance()
 
         /** Creating Users in Firebase**/
@@ -161,7 +168,7 @@ class SignUpActivity : AppCompatActivity() {
 
                                 val database = FirebaseDatabase.getInstance().reference
                                 val key = database.child("Profiles").push().key
-                                val registerUser = Users(email, password, name, organization)
+                                val registerUser = Users(email, password, name, bday, organization)
 
                                 if (key != null) {
                                     database.child("Profiles").child(key).setValue(registerUser)
@@ -211,5 +218,43 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
+
+
+    /**shows the date picker in the birthdate textview and set the constraint (max day = yesterday)**/
+    private fun showDatePickerDialog() {
+        // Get the current date as default
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        // Set the DatePickerDialog maximum date to one year before today's date
+        val maxDate = calendar.apply { add(Calendar.YEAR, -5) }.timeInMillis
+        val datePickerDialog = DatePickerDialog(
+            ContextThemeWrapper(this, R.style.BrownDatePickerStyle),
+            { _, year, monthOfYear, dayOfMonth ->
+                // Set the selected date to the TextView
+                val selectedDate = Calendar.getInstance().apply {
+                    set(year, monthOfYear, dayOfMonth)
+                }
+                val today = Calendar.getInstance()
+                if (selectedDate.before(today)) {
+                    val dateString = "$dayOfMonth/${monthOfYear + 1}/$year"
+                    bday.text = dateString
+                } else {
+                    Toast.makeText(this, "Please select a date before today", Toast.LENGTH_SHORT).show()
+                }
+            },
+            year,
+            month,
+            day
+        )
+
+
+        datePickerDialog.datePicker.maxDate = maxDate // Set the maximum date to one year before today's date
+
+        // Show the DatePickerDialog
+        datePickerDialog.show()
+    }
 
 }

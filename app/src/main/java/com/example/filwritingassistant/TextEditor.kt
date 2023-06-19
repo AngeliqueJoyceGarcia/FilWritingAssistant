@@ -317,7 +317,7 @@ class TextEditor : AppCompatActivity() {
                 // Clear the suggestion list
                 suggestionList.clear()
 
-                // Step 1: Get the text from the. editor and split it into. sentences
+                // Step 1: Get the text from the editor and split it into sentences
                 val text = s.toString()
                 val sentences = text.split(Regex("(?<=\\.)\\s+"))
 
@@ -377,7 +377,7 @@ class TextEditor : AppCompatActivity() {
                             prevToken = token
                         }
 
-                        // Case 4: Suggesting closest word from word list.
+                        // Case 4: Suggesting closest word from word list
                         for (token in tokens){
                             var token = token.lowercase()
 
